@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div id="general">
+    <div class="titulo">
+        <p>Olhe como é fácil ver se o caminho está perfeito hoje!</p>
+    </div>
+    <div class="tempo-real"></div>
+    <div class="tempo-semana">
+        <div class="dias" *ngFor="let t of temp;">
+            <div class="title-dias">{{t.dia}}</div>
+            <div class="maxima">
+                <i class="fa fa-arrow-up" style="color:red;"></i>
+                {{t.maxima}}
+            </div>
+            <div class="minima">
+                <div class="divider"></div>
+                <i class="fa fa-arrow-down" style="color:rgba(6, 6, 218, 0.644);"></i>
+                {{t.minima}}
+            </div>
+        </div>          
+    </div>
+</div>

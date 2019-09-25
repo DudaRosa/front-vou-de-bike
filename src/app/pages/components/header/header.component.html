@@ -1,0 +1,41 @@
+<nav class="header" role="navigation">
+  <div id="menuToggle" [ngClass]="{'menu-open': isMenuOpen}" (click)="onBtnToggleMenuClick()">
+    <!--
+    Checkbox
+    -->
+    <input type="checkbox"/>
+
+    <!--
+    Hamburguer
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <!--
+    Menu
+    -->
+    <div class="menu-background" [ngClass]="{'open': isMenuOpen}"></div>
+    <ul id="menu">
+      <a routerLink="/home">
+        <li>Home</li>
+      </a>
+      <a (click)="disbaleNewHeader()" routerLink="/mapa">
+        <li>Mapas</li>
+      </a>
+      <a (click)="disbaleNewHeader()" routerLink="/noticia">
+        <li>Notícias</li>
+      </a>
+      <a (click)="disbaleNewHeader()" routerLink="/clima">
+        <li>Clima</li>
+      </a>
+      <a routerLink="/parceiros">
+        <li class="bot-space">Sites</li>
+      </a>
+      <a routerLink="/sobre">
+        <li>Sobre</li>
+      </a>
+    </ul>
+  </div>
+  <img class="img" routerLink="" src="../assets/img/LogoVerdeBranco.jpeg">
+</nav>

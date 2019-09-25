@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div id="general">
+    <div class="titulo">
+        <p>Vem cá, alugar a sua bike!</p>
+    </div>
+    <div class="bloco-parceiros">
+        <p class="sub-titulo"> Temos algumas indicações para você que não sabe onde alugar as bikes:</p>
+        <div class="parceiros">
+            <div class="item" *ngFor="let item of itemParceiros1">
+                <img class="img" src= {{item.img}}>
+                <p class="titulo-p">{{ item.titulo}}</p>
+                <p class="descricao">{{ item.descricao}}</p>
+                <a class="link" href= {{item.link}}>{{ item.link}}</a>
+            </div>
+        </div>
+        <div class="parceiros">
+            <div class="item" *ngFor="let item of itemParceiros2">
+                <img class="img" src= {{item.img}}>
+                <p class="titulo-p">{{ item.titulo}}</p>
+                <p class="descricao">{{ item.descricao}}</p>
+                <a class="link" href= {{item.link}}>{{ item.link}}</a>
+            </div>
+        </div>
+    </div>
+</div>
