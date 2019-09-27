@@ -1,0 +1,77 @@
+#general {
+  height: 80vh;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+}
+.titulo{
+    font-size: 2.3rem;
+    color: #414141;
+    margin: 0.5rem 0% 0% 37%;
+    width: 100%;
+    
+}
+.bloco-parceiros{
+  width: 100%;
+  height: 100%; 
+  padding: 0% 30px;
+}
+.sub-titulo{
+  font-size: 1.8rem;
+  color: #414141;
+ 
+}
+.scrollbar {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 64vh;
+
+}
+.parceiros{
+  width: 48%;
+  height: 30%;
+  float: left;
+  margin-top: 1%;
+  margin-left: 1rem;
+  border-width: medium;
+  border-style: solid;
+  border-radius: 16px;
+}
+.item{
+  width: 100%;
+  height: 25%;
+  padding: 10px 20px 0px 20px;
+  margin-top: 30px;
+  
+}
+.img{
+  width: 15%;
+  margin: 2%;
+  float: left;
+  border-radius: 50px;
+  
+}
+.titulo-p{
+  font-size: 1.2rem;
+  color: #414141;
+  margin-top: 1%;
+  margin-bottom: 0%;
+  font-weight: bold;
+}
+.descricao{
+  font-size: 0.9rem;
+  color: #414141;
+}
+
+.link_text{
+  font-size: 0.9rem;
+  color: #414141;
+}
+.btn-cupons{
+  padding: 1% 8%;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #16a086;
+  border-radius: 6px;
+  margin: 0% 0% 1% 16%;
+}

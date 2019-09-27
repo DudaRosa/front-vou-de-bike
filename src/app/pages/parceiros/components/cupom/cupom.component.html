@@ -1,0 +1,25 @@
+<div class="cupom">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Cupons de Desconto da {{item.titulo}}</h4>
+        <img src="../assets/img/sites/icon_cupom.png" class="img-cupom">
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="table-dialog scrollbar">
+        <table class="table table-striped">
+            <tbody>
+                <tr *ngFor="let cupom of cupons">
+                    <th scope="row" class="texto-promocao">SUPER PROMOÇÃO</th>
+                    <td>{{ cupom.descricao}}</td>
+                    <td>Acaba em: {{ cupom.validade}}</td>
+                    <td>Código: <b>{{ cupom.cupom }}</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <button class="link" [style.borderColor]="item.borderColor" (click)="getCupons(item.link)">Ir para o site</button>
+</div>

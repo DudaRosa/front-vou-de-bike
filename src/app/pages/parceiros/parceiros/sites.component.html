@@ -1,0 +1,19 @@
+<div id="general">
+    <div class="titulo">
+        <p>Vem cá, alugar a sua bike!</p>
+    </div>
+    <div class="bloco-parceiros">
+        <p class="sub-titulo"> Temos algumas indicações para você que não sabe onde alugar as bikes:</p>
+
+        <div class="scrollbar">
+            <div *ngFor="let item of itemParceiros1">
+                <div class="parceiros" [style.borderColor]="item.borderColor">
+                    <img class="img" src={{item.img}}>
+                    <p class="titulo-p">Que tal alugar sua bike hoje com a {{ item.titulo}} ?</p>
+                    <p class="descricao">Preparamos um cupom para você, basta ir em “Ver Cupom”.</p>
+                    <button class="btn-cupons" (click)="openDialogCupom(item)"> VER CUPOM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

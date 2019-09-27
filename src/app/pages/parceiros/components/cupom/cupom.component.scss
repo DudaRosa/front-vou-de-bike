@@ -1,0 +1,32 @@
+.cupom{
+    padding: 20px;
+    height: 80vh;
+}
+
+.link{
+    margin-left: 39%;
+    padding: 1% 2%;
+    background-color: transparent;
+    border-radius: 6px;
+    color: #414141;
+  }
+
+.texto-promocao{
+    color:#ff0e0e;
+    text-align: center;
+}
+.table-dialog{
+    flex-grow: 1;
+    overflow: auto;
+    
+    &.scrollbar {
+        padding: 0 20px;
+        flex-grow: 1;
+        overflow-y: auto;
+        height: 57vh;
+  }
+}
+.img-cupom{
+    width: 10%;
+    margin-top: -29px;
+}

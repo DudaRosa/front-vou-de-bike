@@ -3,9 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClimaComponent } from './pages/clima/clima.component';
 import { MapaComponent } from './pages/mapa/mapa/mapa.component';
 import { NoticiaComponent } from './pages/noticia/noticia.component';
-import { SitesComponent } from './pages/parceiros/sites.component';
-import { SobreComponent } from './pages/sobre/sobre.component';
+import { SobreComponent } from './pages/sobre/sobre/sobre.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SitesComponent } from './pages/parceiros/parceiros/sites.component';
+
 
 const routes: Routes = [
   {

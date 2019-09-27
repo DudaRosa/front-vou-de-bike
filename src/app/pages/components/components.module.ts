@@ -4,8 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import { ClimaComponent } from "../clima/clima.component";
 import { NoticiaComponent } from "../noticia/noticia.component";
-import { SitesComponent } from "../parceiros/sites.component";
-import { SobreComponent } from "../sobre/sobre.component";
+import { SobreComponent } from "../sobre/sobre/sobre.component";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { MapaComponent } from "../mapa/mapa/mapa.component";
@@ -14,20 +13,21 @@ import { MapaResolver } from "../mapa/resolvers/mapa.resolver";
 import { NoticiaResolver } from "../noticia/resolvers/noticia.resolver";
 import { MapaService } from "../mapa/services/mapa.service";
 import { NoticiaService } from "../noticia/services/noticia.service";
+import { ParceirosModule } from '../parceiros/parceiros.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    ParceirosModule
   ],
   declarations: [
     HeaderComponent,
     ClimaComponent,
     MapaComponent,
     NoticiaComponent,
-    SitesComponent,
     HomeComponent,
     SobreComponent
   ],
@@ -36,7 +36,6 @@ import { NoticiaService } from "../noticia/services/noticia.service";
     ClimaComponent,
     MapaComponent,
     NoticiaComponent,
-    SitesComponent,
     SobreComponent,
     HomeComponent
   ],
