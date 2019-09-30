@@ -1,9 +1,9 @@
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { HeaderComponent } from "./header/header.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import { ClimaComponent } from "../clima/clima.component";
-import { NoticiaComponent } from "../noticia/noticia.component";
+import { NoticiaComponent } from "../noticia/noticia/noticia.component";
 import { SobreComponent } from "../sobre/sobre/sobre.component";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -44,7 +44,10 @@ import { ParceirosModule } from '../parceiros/parceiros.module';
     NoticiaResolver,
     MapaService,
     NoticiaService
-  ]
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+  ],
 })
 
 export class ComponentsModule { }
