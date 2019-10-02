@@ -1,8 +1,3 @@
-#general {
-    flex-direction: row;
-    width: 100%;
-
-}
 img{
     height: 400px;
 }
@@ -10,14 +5,15 @@ img{
     background-color: black;
     width: 100%;
     height: 50%;
-  float: left;
+    float: left;
 }
 .bloco-localidade{
     width: 100%;
-    height: 30vh;
+    height: calc(18.3rem - 0px);
     background-color: #16a086;
     float: left;
     position: relative;
+    display: block;
 }
 .titulo{
     color: #E5E5E5;
