@@ -3,7 +3,7 @@ import { NgbDateStruct, NgbCalendar, NgbDatepickerI18n, NgbCalendarPersian } fro
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 const WEEKDAYS_SHORT = ['Seg', 'Ter', 'Quar', 'Quin', 'Sex', 'Sab', 'Dom'];
-const MONTHS = ['Jan','Fev','Mar', 'Abri', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+const MONTHS = ['Jan', 'Fev', 'Mar', 'Abri', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
 @Injectable()
 export class NgbDatepickerI18nPersian extends NgbDatepickerI18n {
@@ -17,9 +17,9 @@ export class NgbDatepickerI18nPersian extends NgbDatepickerI18n {
   selector: 'app-noticia',
   templateUrl: './noticia.component.html',
   styleUrls: ['./noticia.component.scss'],
-   providers: [
-    {provide: NgbCalendar, useClass: NgbCalendarPersian},
-    {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
+  providers: [
+    { provide: NgbCalendar, useClass: NgbCalendarPersian },
+    { provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian }
   ]
 })
 
@@ -28,21 +28,42 @@ export class NoticiaComponent implements OnInit {
 
   model: NgbDateStruct;
   today: Date = new Date;
-  date:any;
+  date: any;
   images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
 
-  constructor(private calendar: NgbCalendar) { 
-     this.date = {year: this.today.getFullYear(), month: this.today.getMonth()};
-    //  console.log("hoje >> ", this.model);
+  eventos: any = [
+    { data: "07", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+    { data: "13", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+    { data: "25", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+    { data: "28", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+    { data: "15", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  ]
+
+  noticias: any = [
+    {
+      titulo: "Bike Sampa lança bicicletas elétricas compartilhadas em São paulo",
+      desc: "Operação de teste com 20 unidades começa a partir de segunda-feira na capital paulista", 
+      link: "https://exame.abril.com.br/pme/bike-sampa-lanca-bicicletas-eletricas-compartilhadas-em-sao-paulo/",
+      img: "../assets/img/noticia/noticia-1.jpeg",
+    }
+  ]
+
+  constructor(private calendar: NgbCalendar) {
+    this.date = { year: this.today.getFullYear(), month: this.today.getMonth() };
+
   }
 
   selectToday() {
-    
-  //  this.date = {year: this.today.getFullYear(), month: this.today.getMonth(), day: this.};
+
+    //  this.date = {year: this.today.getFullYear(), month: this.today.getMonth(), day: this.};
   }
 
   ngOnInit() {
-  
+
+  }
+
+  getLink(link) {
+    window.open(link);
   }
 
 }

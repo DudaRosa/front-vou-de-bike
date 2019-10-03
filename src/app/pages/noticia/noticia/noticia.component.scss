@@ -10,7 +10,6 @@
 }
 
 .noticias{
-  background-color: burlywood;
   width: 50%;
   height: 80vh;
   padding: 4% 5%;
@@ -54,7 +53,7 @@ ngb-datepicker {
   .dia{
     color: #ffffff;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 }
 .scrollbar {
@@ -70,3 +69,23 @@ ngb-datepicker {
   margin-top: 2%;
   background-color: #16a086;
 }
+.slide{
+  height: 20rem;
+}
+img{
+  height: 20rem;
+  width: 100%;
+}
+.desc{
+  p{
+    margin-top: 1%;
+  }
+} 
+.link{
+    margin-left: 39%;
+    padding: 1% 2%;
+    background-color: transparent;
+    border-radius: 6px;
+    color: #414141;
+    border-color: #16a086;
+  }
