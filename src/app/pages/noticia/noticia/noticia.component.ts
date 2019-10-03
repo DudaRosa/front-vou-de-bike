@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { NgbDateStruct, NgbCalendar, NgbDatepickerI18n, NgbCalendarPersian } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar, NgbDatepickerI18n, NgbCalendarPersian, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 const WEEKDAYS_SHORT = ['Seg', 'Ter', 'Quar', 'Quin', 'Sex', 'Sab', 'Dom'];
@@ -7,9 +7,9 @@ const MONTHS = ['Jan', 'Fev', 'Mar', 'Abri', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 
 
 @Injectable()
 export class NgbDatepickerI18nPersian extends NgbDatepickerI18n {
-  getWeekdayShortName(weekday: number) { return WEEKDAYS_SHORT[weekday - 1]; }
-  getMonthShortName(month: number) { return MONTHS[month - 1]; }
-  getMonthFullName(month: number) { return MONTHS[month - 1]; }
+  getWeekdayShortName(weekday: number) { return WEEKDAYS_SHORT[weekday]; }
+  getMonthShortName(month: number) { return MONTHS[month]; }
+  getMonthFullName(month: number) { return MONTHS[month]; }
   getDayAriaLabel(date: NgbDateStruct): string { return `${date.year}-${this.getMonthFullName(date.month)}-${date.day}`; }
 }
 
@@ -26,10 +26,9 @@ export class NgbDatepickerI18nPersian extends NgbDatepickerI18n {
 
 export class NoticiaComponent implements OnInit {
 
-  model: NgbDateStruct;
   today: Date = new Date;
-  date: any;
-  images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
+  date: any = {year: this.today.getFullYear(), month: this.today.getMonth(), day: this.today.getDay()};
+  
 
   eventos: any = [
     { data: "07", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
@@ -48,14 +47,12 @@ export class NoticiaComponent implements OnInit {
     }
   ]
 
-  constructor(private calendar: NgbCalendar) {
-    this.date = { year: this.today.getFullYear(), month: this.today.getMonth() };
+  constructor() {
 
   }
 
-  selectToday() {
-
-    //  this.date = {year: this.today.getFullYear(), month: this.today.getMonth(), day: this.};
+  onDateSelection(date: NgbDate) {
+ console.log("date ", date);
   }
 
   ngOnInit() {

@@ -1,24 +1,30 @@
 <div id="general">
 
     <div class="calendario">
-        <ngb-datepicker style="float: left" [(ngModel)]="model"></ngb-datepicker>
-        <h6 style="float: left; margin-left: 20px;">Eventos:</h6>
-        <div class="scrollbar">
-            <div class="eventos" *ngFor="let evento of eventos">
-                <div class="dia-evento">
-                    <p class="dia">{{ evento.data}}</p>
+        <div class="bloco-eventos1">
+            <h6>Escolha uma Data:</h6>
+            <ngb-datepicker [(ngModel)]="date" [startDate]="date" (select)="onDateSelection($event)"></ngb-datepicker>
+        </div>
+
+        <div class="bloco-eventos2">
+            <h6 style="float: left; margin-left: 20px;">Eventos:</h6>
+            <div class="scrollbar">
+                <div class="eventos" *ngFor="let evento of eventos">
+                    <div class="dia-evento">
+                        <p class="dia">{{ evento.data}}</p>
+                    </div>
+                    <h6 class="titulo">{{evento.titulo}}</h6>
+                    <p class="desc">{{evento.local}}</p>
+                    <p class="desc">{{evento.horario}}</p>
                 </div>
-                <h6 class="titulo">{{evento.titulo}}</h6>
-                <p class="desc">{{evento.local}}</p>
-                <p class="desc">{{evento.horario}}</p>
             </div>
         </div>
+
     </div>
     <div class="separador"></div>
     <div class="noticias">
-
         <div class="slide">
-            <ngb-carousel *ngIf="images">
+            <ngb-carousel>
                 <ng-template ngbSlide *ngFor="let slide of noticias">
                     <h5>{{slide.titulo}}</h5>
                     <div class="picsum-img-wrapper">
