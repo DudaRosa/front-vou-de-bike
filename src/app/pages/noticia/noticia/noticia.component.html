@@ -4,12 +4,15 @@
         <div class="bloco-eventos1">
             <h6>Escolha uma Data:</h6>
             <ngb-datepicker [(ngModel)]="date" [startDate]="date" (select)="onDateSelection($event)"></ngb-datepicker>
+
+            <h6 style="margin-top: 10%;">Veja os eventos do mês todo!</h6>
+            <button class="event-mes" (click)="getEventoMes()">Eventos dos mês</button>
         </div>
 
         <div class="bloco-eventos2">
             <h6 style="float: left; margin-left: 20px;">Eventos:</h6>
             <div class="scrollbar">
-                <div class="eventos" *ngFor="let evento of eventos">
+                <div class="eventos" *ngFor="let evento of event">
                     <div class="dia-evento">
                         <p class="dia">{{ evento.data}}</p>
                     </div>
@@ -17,9 +20,11 @@
                     <p class="desc">{{evento.local}}</p>
                     <p class="desc">{{evento.horario}}</p>
                 </div>
+                <div *ngIf="event.length == 0">
+                    <h6 style="margin-top: 5%">Não tem evento nessa data.</h6>
+                </div>
             </div>
         </div>
-
     </div>
     <div class="separador"></div>
     <div class="noticias">

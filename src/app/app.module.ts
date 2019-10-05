@@ -16,7 +16,7 @@ import { ComponentsModule } from './pages/components/components.module';
     ComponentsModule,
     AppRoutingModule,
     BrowserModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
