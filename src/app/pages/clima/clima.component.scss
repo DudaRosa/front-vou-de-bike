@@ -20,11 +20,12 @@
 }
 
 .tempo-semana{
-  width: 50%;
-  background-color: #414141;
+  width: 30%;
   height: 100%;
-  margin-top: 5%;
+  margin-top: 8%;
   float: right;
+  margin-right: 20%;
+  padding: 2% 1% 2% 3%
   
 }
 .dias{
@@ -110,4 +111,29 @@
 .table-itens{
   float: right;
 }
-
+.bloco-semana{
+  border-width: medium;
+  border-style: solid;
+  border-radius: 16px;
+  border-color: #16a086;
+  padding: 0% 6%;
+  display: flex;
+  width: 90%;
+  margin-top: 1%;
+}
+.texto-dia-semana{
+  width: 20%;
+  float: left;
+  margin-top: 10%;
+  font-size: 1.7rem;
+}
+.temp{
+  width: 60%;
+  float: left;
+  margin-left: 11%;
+}
+.scrollbar {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 64vh;
+}

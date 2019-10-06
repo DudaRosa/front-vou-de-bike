@@ -68,7 +68,18 @@
         </div>
 
     </div>
-    <div class="tempo-semana">
-        <p>São paulo</p>
+    <div class="tempo-semana scrollbar">
+        <div class="bloco-semana" *ngFor="let t of temp">
+            <h4 class="texto-dia-semana">{{t.dia}}</h4>
+            <div class="temp">
+                <p class="texto-prev-hoje">
+                    <i class="fa fa-angle-up" style="color: brown;" id="icon-prev-hoje"></i>
+                    {{t.maxima}}º</p>
+                <div class="s"></div>
+                <p class="texto-prev-hoje">
+                    <i class="fa fa-angle-down" style="color: #323290eb;" aria-hidden="true" id="icon-prev-hoje"></i>
+                    {{t.minima}}º</p>
+            </div>
+        </div>
     </div>
 </div>
