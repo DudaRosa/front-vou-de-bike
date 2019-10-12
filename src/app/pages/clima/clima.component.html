@@ -68,8 +68,9 @@
         </div>
 
     </div>
-    <div class="tempo-semana scrollbar">
+    <div class="tempo-semana">
         <div class="bloco-semana" *ngFor="let t of temp">
+            <h6 style="float: right;">{{t.data}}</h6>
             <h4 class="texto-dia-semana">{{t.dia}}</h4>
             <div class="temp">
                 <p class="texto-prev-hoje">

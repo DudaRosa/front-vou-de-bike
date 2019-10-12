@@ -5,18 +5,18 @@
   display: flex;
 }
 .titulo{
-    font-size: 2.5rem;
-    color: #414141;
-    text-align: center;
+  font-size: 2.0rem;
+  color: #414141;
+  text-align: center;
     
 }
 .bloco-parceiros{
   width: 100%;
   height: 100%; 
-  padding: 0% 30px;
+  padding: 0% 3%;
 }
 .sub-titulo{
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: #414141;
  
 }
@@ -27,14 +27,15 @@
 
 }
 .parceiros{
-  width: 48%;
-  height: 30%;
-  float: left;
-  margin-top: 1%;
-  margin-left: 1rem;
-  border-width: medium;
-  border-style: solid;
-  border-radius: 16px;
+    width: 48%;
+    height: 30%;
+    float: left;
+    margin-top: 1%;
+    margin-left: 2%;
+    border-width: medium;
+    border-style: solid;
+    border-radius: 16px;
+    position: relative;
 }
 .item{
   width: 100%;

@@ -1,5 +1,10 @@
+.general {
+    height: 100%;
+    width: 100%;
+  }
 img{
     height: 400px;
+    width: 100%;
 }
 .bloco-carousel{
     background-color: black;
@@ -23,7 +28,8 @@ img{
 .texto{
     color: #E5E5E5;
     width: 60%;
-    margin-left: 20%
+    margin-left: 20%;
+    font-size: 1rem;
 }
 .botao-cidade{
     background-color: #E5E5E5;

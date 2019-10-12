@@ -207,11 +207,11 @@ li{
 }
 
 .img{
-    width: 100px;
-    height: 60px;
-    margin-left: 90%;
-    -ms-flex-order: 5;
+    margin-left: 80%;
     order: 5;
+    max-width: 100%;
+    width: 8%;
+    -ms-flex-order: 5;
     cursor: pointer;
 }
 

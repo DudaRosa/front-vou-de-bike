@@ -20,11 +20,10 @@
 }
 
 .tempo-semana{
-  width: 30%;
+  width: 45%;
   height: 100%;
   margin-top: 8%;
   float: right;
-  margin-right: 20%;
   padding: 2% 1% 2% 3%
   
 }
@@ -116,24 +115,20 @@
   border-style: solid;
   border-radius: 16px;
   border-color: #16a086;
-  padding: 0% 6%;
-  display: flex;
-  width: 90%;
+  padding: 0% 3%;
+  width: 43%;
   margin-top: 1%;
+  float: left;
+  margin-right: 2%;
 }
 .texto-dia-semana{
   width: 20%;
   float: left;
-  margin-top: 10%;
-  font-size: 1.7rem;
+  margin-top: 13%;
+  font-size: 1.2rem;
 }
 .temp{
   width: 60%;
-  float: left;
-  margin-left: 11%;
+  margin-left: 21%;
 }
-.scrollbar {
-  flex-grow: 1;
-  overflow-y: auto;
-  height: 64vh;
-}
+
