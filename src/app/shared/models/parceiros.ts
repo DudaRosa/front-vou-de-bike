@@ -1,6 +1,7 @@
 export class Parceiros {
     descricao: string;
-    id: string;
+    id: number;
     cupom: string;
     validade: string;
+    parceiro: string;
   }

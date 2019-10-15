@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CupomComponent } from '../components/cupom/cupom.component';
+import { ParceirosService } from 'src/app/shared/services/parceiros.service';
 
 @Component({
   selector: 'app-sites',
@@ -53,23 +54,25 @@ export class SitesComponent implements OnInit {
     { img: "../assets/img/sites/sites_pedala.png", titulo: "Pedala SP", descricao: "Pedala SP é um aplicativo sobre estrutura cicloviária, além de incluir pontos importantes no meio do trajeto por São Paulo.", link: "http://pedalaspapp.com.br/" }
   ];
   constructor(
-    private bsDialogService: NgbModal
+    private bsDialogService: NgbModal,
+    private parceirosService: ParceirosService,
   ) { }
 
   ngOnInit() {
   }
 
   openDialogCupom(item) {
-    const modalRef = this.bsDialogService.open(CupomComponent, { size: "lg" });
-    modalRef.componentInstance.item = item;
-    if (item.titulo === "Yellow") {
-      modalRef.componentInstance.cupons = this.cuponsYellow;
-    } else if (item.titulo === "Grin") {
-      modalRef.componentInstance.cupons = this.cuponsGrin;
-    } else if (item.titulo === "Bike Sampa") {
-      modalRef.componentInstance.cupons = this.cuponsBikeSampa;
-    } else if (item.titulo === "Centauro") {
-      modalRef.componentInstance.cupons = this.cuponsCentauro;
-    }
+    console.log(this.parceirosService.getById('Yellow'))
+    // const modalRef = this.bsDialogService.open(CupomComponent, { size: "lg" });
+    // modalRef.componentInstance.item = item;
+    // if (item.titulo === "Yellow") {
+    //   modalRef.componentInstance.cupons = this.cuponsYellow;
+    // } else if (item.titulo === "Grin") {
+    //   modalRef.componentInstance.cupons = this.cuponsGrin;
+    // } else if (item.titulo === "Bike Sampa") {
+    //   modalRef.componentInstance.cupons = this.cuponsBikeSampa;
+    // } else if (item.titulo === "Centauro") {
+    //   modalRef.componentInstance.cupons = this.cuponsCentauro;
+    // }
   }
 }

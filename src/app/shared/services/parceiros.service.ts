@@ -13,8 +13,20 @@ export class ParceirosService {
 
         return this.http
             .get<Parceiros[]>(endpoint, {
-                headers,
-                // withCredentials: environment.withCredentials
+                headers
+            })
+            .toPromise();
+    }
+
+    getById(id: string): Promise<Parceiros[]> {
+       
+
+    const endpoint = `${environment.http_backend}/selecionar/${id}`;
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this.http
+            .get<Parceiros[]>(endpoint, {
+                headers
             })
             .toPromise();
     }
