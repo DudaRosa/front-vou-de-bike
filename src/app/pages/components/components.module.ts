@@ -14,6 +14,7 @@ import { NoticiaResolver } from "../noticia/resolvers/noticia.resolver";
 import { MapaService } from "../mapa/services/mapa.service";
 import { NoticiaService } from "../noticia/services/noticia.service";
 import { ParceirosModule } from '../parceiros/parceiros.module';
+import { ParceiroResolver } from '../parceiros/resolvers/parceiro.resolver';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { ParceirosModule } from '../parceiros/parceiros.module';
     MapaResolver,
     NoticiaResolver,
     MapaService,
-    NoticiaService
+    NoticiaService,
+    ParceiroResolver
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
