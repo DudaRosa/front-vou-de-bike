@@ -6,6 +6,7 @@ import { NoticiaComponent } from './pages/noticia/noticia/noticia.component';
 import { SobreComponent } from './pages/sobre/sobre/sobre.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SitesComponent } from './pages/parceiros/parceiros/sites.component';
+import { ParceiroResolver } from './pages/parceiros/resolvers/parceiro.resolver';
 
 
 const routes: Routes = [
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
       path: 'parceiros',
-      component: SitesComponent
+      component: SitesComponent,
   },
   {
       path: 'sobre',

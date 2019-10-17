@@ -12,9 +12,9 @@ import { HomeComponent } from "../home/home.component";
 import { MapaResolver } from "../mapa/resolvers/mapa.resolver";
 import { NoticiaResolver } from "../noticia/resolvers/noticia.resolver";
 import { MapaService } from "../mapa/services/mapa.service";
-import { NoticiaService } from "../noticia/services/noticia.service";
 import { ParceirosModule } from '../parceiros/parceiros.module';
 import { ParceiroResolver } from '../parceiros/resolvers/parceiro.resolver';
+import { NoticiaService } from 'src/app/shared/services/noticia.service';
 
 @NgModule({
   imports: [

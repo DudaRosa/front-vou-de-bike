@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  http_backend: 'http://localhost:8080/bike',
+  http_backend: 'http://localhost:9080/bike',
   withCredentials: false,
 };
 
