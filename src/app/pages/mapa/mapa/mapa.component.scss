@@ -1,6 +1,8 @@
 #general {
-    display: flex;
     flex-direction: row;
-    height: calc(100% - 60px);
+    height: calc(42rem - 80px);
 
-  }
+}
+agm-map {
+  height: 100%;
+ }

@@ -65,15 +65,15 @@ export class SitesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(data => {
-      // this.cupom = data.data[0];
-    });
+    // this.activatedRoute.data.subscribe(data => {
+    //   this.cupom = data.data[0];
+    // });
   }
 
   openDialogCupom(item) {
-    this
+    const listCupom =this
       .parceirosService
-      .getAllCupom()
+      .getById(item.titulo)
       .then((cupom: Cupom[]) => {
         this.cupom = cupom;
       });
@@ -81,15 +81,15 @@ export class SitesComponent implements OnInit {
     console.log(this.cupom);
 
     const modalRef = this.bsDialogService.open(CupomComponent, { size: "lg" });
-    modalRef.componentInstance.item = item;
-    if (item.titulo === "Yellow") {
-      modalRef.componentInstance.cupons = this.cuponsYellow;
-    } else if (item.titulo === "Grin") {
-      modalRef.componentInstance.cupons = this.cuponsGrin;
-    } else if (item.titulo === "Bike Sampa") {
-      modalRef.componentInstance.cupons = this.cuponsBikeSampa;
-    } else if (item.titulo === "Centauro") {
-      modalRef.componentInstance.cupons = this.cuponsCentauro;
-    }
+    modalRef.componentInstance.item = listCupom;
+    // if (item.titulo === "Yellow") {
+    //   modalRef.componentInstance.cupons = this.cuponsYellow;
+    // } else if (item.titulo === "Grin") {
+    //   modalRef.componentInstance.cupons = this.cuponsGrin;
+    // } else if (item.titulo === "Bike Sampa") {
+    //   modalRef.componentInstance.cupons = this.cuponsBikeSampa;
+    // } else if (item.titulo === "Centauro") {
+    //   modalRef.componentInstance.cupons = this.cuponsCentauro;
+    // }
   }
 }

@@ -1,4 +1,13 @@
 <div id="general">
-
-
+    <div class="card" style="width: 26%;">
+        <div class="card-body" >
+            <div class="input-group">
+                <input id="dateOfBirth" class="form-control" placeholder="Pesquise sua rota">
+                <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
 </div>

@@ -15,6 +15,7 @@ import { MapaService } from "../mapa/services/mapa.service";
 import { ParceirosModule } from '../parceiros/parceiros.module';
 import { ParceiroResolver } from '../parceiros/resolvers/parceiro.resolver';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -22,7 +23,10 @@ import { NoticiaService } from 'src/app/shared/services/noticia.service';
     BrowserModule,
     RouterModule,
     NgbModule,
-    ParceirosModule
+    ParceirosModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk'
+    })
   ],
   declarations: [
     HeaderComponent,
