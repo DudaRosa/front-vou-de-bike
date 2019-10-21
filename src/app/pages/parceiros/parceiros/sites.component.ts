@@ -73,7 +73,7 @@ export class SitesComponent implements OnInit {
   openDialogCupom(item) {
     const listCupom =this
       .parceirosService
-      .getById(item.titulo)
+      .getByParceiro(item.titulo)
       .then((cupom: Cupom[]) => {
         this.cupom = cupom;
       });
