@@ -18,10 +18,10 @@ export class ParceirosService {
             .toPromise();
     }
 
-    getById(id: string): Promise<Cupom[]> {
+    getByParceiro(parceiro: string): Promise<Cupom[]> {
        
 
-    const endpoint = `${environment.http_backend}/selecionar/${id}`;
+    const endpoint = `${environment.http_backend}/listar/${parceiro}`;
         const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
         return this.http

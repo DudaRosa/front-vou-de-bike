@@ -19,4 +19,15 @@ export class NoticiaService {
             })
             .toPromise();
     }
+
+    getByDia(dia : string): Promise<Noticia[]> {
+        const endpoint = `${environment.http_backend}/noticia/listar/${dia}`;
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this.http
+            .get<Noticia[]>(endpoint, {
+                headers
+            })
+            .toPromise();
+    }
 }
