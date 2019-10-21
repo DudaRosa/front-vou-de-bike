@@ -74,8 +74,11 @@ filterEvento(eventos, date) {
   return eventos.filter(e => e.data === date);
 }
 ngOnInit() {
-
+    // this.activatedRoute.data.subscribe(data => {
+    //   this.cupom = data.data[0];
+    // });
 }
+
 
 getEventoMes(){
   return this.event = this.eventos;
