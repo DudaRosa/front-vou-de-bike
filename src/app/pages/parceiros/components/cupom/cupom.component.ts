@@ -7,14 +7,15 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./cupom.component.scss']
 })
 export class CupomComponent implements OnInit {
- item: any;
  cupons: any;
+ item: string;
 
   constructor(
     private bsDialogRef: NgbActiveModal
   ) { }
 
   ngOnInit() {
+    console.log("cupons",this.cupons);
   }
 
   close() {
