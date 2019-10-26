@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapaComponent implements OnInit {
 
- 
+  ativarRota: boolean = false;
   lat: number = -23.8779431;
   lng: number = -49.8046873;
   zoom: number = 15;

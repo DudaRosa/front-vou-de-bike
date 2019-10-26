@@ -1,16 +1,90 @@
 <div id="general">
-    <div class="card" style="width: 36%;">
-        <div class="card-body" >
-            <div class="input-group">
-                <input id="dateOfBirth" class="form-control" placeholder="Pesquise sua rota">
-                <button class="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></button>
-                <button class="rota">
-                    <img style="width: 2.3rem;" src="../../../../assets/img/mapa/route.png">
-                </button>
+    <div class="x">
+        <div class="y">
+            <div class="card">
+                <div class="card-body">
+                    <div class="input-group">
+                        <input id="dateOfBirth" class="form-control" placeholder="Pesquise sua rota">
+                        <button class="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button class="rota">
+                            <img style="width: 2.3rem;" src="../../../../assets/img/mapa/route.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" *ngIf="ativarRota">
+                <div class="card-body">
+                    <div class="input-group">
+                        <h5>Resumo do local:</h5>
+                        <div class="resumo">
+                            <h6>Dificuldade</h6>
+                            <p style="margin-bottom: 0%;">
+                                <ngb-progressbar type="danger" [value]="80"></ngb-progressbar>
+                            </p>
+                            <div class="progressbar-texto">
+                                <p class="item-texto-esquerda">Fácil de ir</p>
+                                <p class="item-texto-direita">Mais difícil</p>
+                            </div>
+                        </div>
+                        <div class="resumo">
+                            <h6>Tempo</h6>
+                            <p style="margin-bottom: 0%;">
+                                <ngb-progressbar type="warning" [value]="70"></ngb-progressbar>
+                            </p>
+                            <div class="progressbar-texto">
+                                <p class="item-texto-esquerda">Rapidinho</p>
+                                <p class="item-texto-direita">Mais lento</p>
+                            </div>
+                        </div>
+                        <div class="resumo">
+                            <h6>Perigo</h6>
+                            <p style="margin-bottom: 0%;">
+                                <ngb-progressbar type="secondary" [value]="10"></ngb-progressbar>
+                            </p>
+                            <div class="progressbar-texto">
+                                <p class="item-texto-esquerda">Tudo Seguro!</p>
+                                <p class="item-texto-direita">Tenha cuidado!</p>
+                            </div>
+                        </div>
+                        <div class="separador"></div>
+                        <h5>Clima:</h5>
+                        <div class="resumo">
+                            <h6>Chuva</h6>
+                            <p style="margin-bottom: 0%;">
+                                <ngb-progressbar type="primary" [value]="10"></ngb-progressbar>
+                            </p>
+                            <div class="progressbar-texto">
+                                <p class="item-texto-esquerda">Não vai chover!</p>
+                                <p class="item-texto-direita">Chuva vindo!</p>
+                            </div>
+                        </div>
+                        <div class="resumo">
+                            <h6>Temperatura</h6>
+                            <p style="margin-bottom: 0%;">
+                                <ngb-progressbar type="success" [value]="40"></ngb-progressbar>
+                            </p>
+                            <div class="progressbar-texto">
+                                <p class="item-texto-esquerda">Frioo</p>
+                                <p class="item-texto-direita">Calorzinho</p>
+                            </div>
+                        </div>
+                        <div class="separador"></div>
+                        <h5 class="ask-like">Você irá de bicicleta hoje?</h5>
+                        <button class="like yes">
+                            <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
+                        </button>
+                        <button class="like no">
+                                <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
+
+    <!-- <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map> -->
+
 </div>
