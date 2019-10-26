@@ -21,7 +21,7 @@ export class ParceirosService {
     getByParceiro(parceiro: string): Promise<Cupom[]> {
        
 
-    const endpoint = `${environment.http_backend}/listar/${parceiro}`;
+    const endpoint = `${environment.http_backend}/cupom/listar/${parceiro}`;
         const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
         return this.http

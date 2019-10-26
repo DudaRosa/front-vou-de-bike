@@ -22,7 +22,7 @@ export class SitesComponent implements OnInit {
     { img: "../assets/img/sites/sites_centauro.jpg", borderColor: "#c9244a", titulo: "Centauro", categoria: "comprar", link: "https://www.loucospordesconto.com.br/track/go/lpd/deal-852298?m%5Bgac%5D=1898392780.1569594481" },
     { img: "../assets/img/sites/sites_pedala.png", borderColor: "#001f4c", titulo: "Pedala SP", categoria: "alugar", link: "http://pedalaspapp.com.br/" }
   ];
-  
+
   constructor(
     private bsDialogService: NgbModal,
     private parceirosService: ParceirosService,
@@ -33,16 +33,15 @@ export class SitesComponent implements OnInit {
   }
 
   openDialogCupom(item) {
-    const listCupom =this
+    const listCupom = this
       .parceirosService
       .getByParceiro(item.titulo)
       .then((cupom: Cupom[]) => {
         this.cupom = cupom;
+
+        const modalRef = this.bsDialogService.open(CupomComponent, { size: "lg" });
+        modalRef.componentInstance.cupons = this.cupom;
+        modalRef.componentInstance.item = item.titulo;
       });
-
-    console.log(this.cupom);
-
-    const modalRef = this.bsDialogService.open(CupomComponent, { size: "lg" });
-    modalRef.componentInstance.item = listCupom;
   }
 }
