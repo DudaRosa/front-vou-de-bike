@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MapaComponent implements OnInit {
 
   ativarRota: boolean = false;
+  ativarBtnRota: boolean = true;
   lat: number = -23.8779431;
   lng: number = -49.8046873;
   zoom: number = 15;
@@ -17,4 +18,7 @@ export class MapaComponent implements OnInit {
   ngOnInit() {
   }
 
+  getAtivarRota(){
+    this.ativarBtnRota = false;
+  }
 }

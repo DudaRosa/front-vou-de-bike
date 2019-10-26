@@ -4,11 +4,17 @@
             <div class="card">
                 <div class="card-body">
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" placeholder="Pesquise sua rota">
-                        <button class="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        <button class="rota">
-                            <img style="width: 2.3rem;" src="../../../../assets/img/mapa/route.png">
-                        </button>
+                        <input id="dateOfBirth" class="form-control" placeholder="Pesquise sua rota"  style="width: 70%;">
+                        <div *ngIf="ativarBtnRota" style="height: 100%;">
+                            <button class="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button class="rota" (click)="getAtivarRota()">
+                                <img style="width: 2.3rem;" src="../../../../assets/img/mapa/route.png">
+                            </button>
+                        </div>
+                        <div *ngIf="ativarBtnRota == false" class="bloco-rota">
+                                <input id="dateOfBirth" class="form-control" placeholder="Escolher destino..." style="width: 90%; float: left;">
+                                <button class="pesquisaDestino"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -75,7 +81,7 @@
                             <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
                         </button>
                         <button class="like no">
-                                <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
+                            <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
                         </button>
                     </div>
                 </div>

@@ -12,14 +12,21 @@ agm-map {
   border-color: transparent;
   border-right-color: #16a086;
   border-right-style: solid;
-  padding: 0% 4%;
+  padding: 0% 10%;
   font-size: 1.4rem;
+}
+.pesquisaDestino{
+  background-color: transparent;
+  border-color: transparent;
+  padding: 0% 10%;
+  font-size: 1.4rem;
+  float: right;
 }
 
 .rota{
   background-color: transparent;
   border-color: transparent;
-  padding: 0% 1%;
+  padding: 0% 10%;
 }
 
 div.x{ 
@@ -82,4 +89,8 @@ h5{
   margin: 14%;
   color: white;
   font-size: 2.4rem;
+}
+.bloco-rota{
+  width: 100%;
+  margin-top: 3%;
 }
