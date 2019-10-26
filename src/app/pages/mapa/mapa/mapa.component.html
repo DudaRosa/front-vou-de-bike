@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" placeholder="Pesquise sua rota"  style="width: 70%;">
+                        <input id="dateOfBirth" class="form-control" placeholder="Pesquisar ou escolher o ponto de partida...">
                         <div *ngIf="ativarBtnRota" style="height: 100%;">
                             <button class="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <button class="rota" (click)="getAtivarRota()">
@@ -13,13 +13,13 @@
                         </div>
                         <div *ngIf="ativarBtnRota == false" class="bloco-rota">
                                 <input id="dateOfBirth" class="form-control" placeholder="Escolher destino..." style="width: 90%; float: left;">
-                                <button class="pesquisaDestino"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card" *ngIf="ativarRota">
+            <div class="card" *ngIf="ativarResumo">
                 <div class="card-body">
                     <div class="input-group">
                         <h5>Resumo do local:</h5>

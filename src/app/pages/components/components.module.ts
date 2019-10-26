@@ -16,6 +16,7 @@ import { ParceirosModule } from '../parceiros/parceiros.module';
 import { ParceiroResolver } from '../parceiros/resolvers/parceiro.resolver';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
 import { AgmCoreModule } from '@agm/core';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { AgmCoreModule } from '@agm/core';
     MapaComponent,
     NoticiaComponent,
     HomeComponent,
-    SobreComponent
+    SobreComponent,
+    ToastComponent
   ],
   exports: [
     HeaderComponent,
