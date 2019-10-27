@@ -7,10 +7,10 @@ export class Clima {
     time: string;
     description: string;
     currently: string;
-    humidity: string;
+    humidity: number;
     wind_speedy: string;
     sunrise: string;
     sunset: string;
     city_name: string;
-    forecast: Forecast;
+    forecast: Forecast[];
   }
