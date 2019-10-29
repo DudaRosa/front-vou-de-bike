@@ -2,6 +2,9 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerI18n, NgbCalendarPersian, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
+import { ActivatedRoute } from '@angular/router';
+import { Noticia } from 'src/app/shared/models/noticia';
+import { Evento } from 'src/app/shared/models/evento';
 
 const WEEKDAYS_SHORT = ['Seg', 'Ter', 'Quar', 'Quin', 'Sex', 'Sab', 'Dom'];
 const MONTHS = ['Jan', 'Fev', 'Mar', 'Abri', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
@@ -30,16 +33,18 @@ export class NoticiaComponent implements OnInit {
   today: Date = new Date;
   date: any = { year: this.today.getFullYear(), month: this.today.getMonth(), day: this.today.getDay() };
   event: any = [];
+  listNoticias: Noticia[];
+  listEvento: Evento[];
 
-  eventos: any = [
-    { data: 7, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-    { data: 13, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-    { data: 25, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-    { data: 28, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-    { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-    { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-    { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  ]
+  // eventos: any = [
+  //   { data: 7, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  //   { data: 13, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  //   { data: 25, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  //   { data: 28, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  //   { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  //   { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  //   { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
+  // ]
 
   noticias: any = [
     {
@@ -62,29 +67,37 @@ export class NoticiaComponent implements OnInit {
     }
   ]
 
-  constructor(private noticiaService: NoticiaService) {
+  constructor(
+    private noticiaService: NoticiaService,
+    private activatedRoute: ActivatedRoute, ) {
 
-}
+  }
 
-onDateSelection(date: NgbDate) {
-  this.event = this.filterEvento(this.eventos, date.day);
-}
+  onDateSelection(date: NgbDate) {
+    // this.event = this.filterEvento(this.eventos, date.day);
+  }
 
-filterEvento(eventos, date) {
-  return eventos.filter(e => e.data === date);
-}
-ngOnInit() {
-    // this.activatedRoute.data.subscribe(data => {
-    //   this.cupom = data.data[0];
-    // });
-}
+  filterEvento(eventos, date) {
+    return eventos.filter(e => e.data === date);
+  }
+  ngOnInit() {
+    this.activatedRoute.data.subscribe(data => {
+      this.listNoticias = data.data[0];
+      this.listEvento = data.data[1];
+    });
+  }
 
 
-getEventoMes(){
-  return this.event = this.eventos;
-}
-getLink(link) {
-  // window.open(link);
-  console.log(this.noticiaService.getNoticias());
-}
+  getEventoMes() {
+    this
+      .noticiaService
+      .getListEvento()
+      .then(evento => {
+        return this.listEvento = evento;
+      });
+
+  }
+  getLink(link) {
+    window.open(link);
+  }
 }
