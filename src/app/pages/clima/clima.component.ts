@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Clima } from 'src/app/shared/models/clima';
 
 @Component({
   selector: 'app-clima',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clima.component.scss']
 })
 export class ClimaComponent implements OnInit {
+ listClima: Clima[];
 
   temp: any = [
     { dia: "SEG", data:"19/09", maxima: 26, minima: 26 },
@@ -17,9 +20,15 @@ export class ClimaComponent implements OnInit {
     { dia: "DOM", data:"25/09", maxima: 21, minima: 20 },
   ]
 
-  constructor() { }
+  constructor( private activatedRoute: ActivatedRoute ) { }
+ 
 
   ngOnInit() {
+
+    this.activatedRoute.data.subscribe(data => {
+      this.listClima = data.data[0];
+      console.log("clima >> ", this.listClima);
+    });
   }
 
 

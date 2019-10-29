@@ -17,6 +17,8 @@ import { ParceiroResolver } from '../parceiros/resolvers/parceiro.resolver';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
 import { AgmCoreModule } from '@agm/core';
 import { ToastComponent } from './toast/toast.component';
+import { ClimaResolver } from '../clima/resolvers/clima.resolver';
+import { ClimaService } from 'src/app/shared/services/clima.service';
 
 @NgModule({
   imports: [
@@ -49,6 +51,8 @@ import { ToastComponent } from './toast/toast.component';
   providers:[
     MapaResolver,
     NoticiaResolver,
+    ClimaResolver,
+    ClimaService,
     MapaService,
     NoticiaService,
     ParceiroResolver

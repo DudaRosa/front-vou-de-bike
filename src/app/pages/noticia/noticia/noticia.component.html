@@ -12,15 +12,15 @@
         <div class="bloco-eventos2">
             <h6 style="float: left; margin-left: 20px;">Eventos:</h6>
             <div class="scrollbar">
-                <div class="eventos" *ngFor="let evento of event">
+                <div class="eventos" *ngFor="let evento of listEvento">
                     <div class="dia-evento">
                         <p class="dia">{{ evento.data}}</p>
                     </div>
                     <h6 class="titulo">{{evento.titulo}}</h6>
-                    <p class="desc">{{evento.local}}</p>
+                    <p class="desc">{{evento.descricao}}</p>
                     <p class="desc">{{evento.horario}}</p>
                 </div>
-                <div *ngIf="event.length == 0">
+                <div *ngIf="listEvento.length == 0">
                     <h6 style="margin-top: 5%">Não tem evento nessa data.</h6>
                 </div>
             </div>
@@ -30,13 +30,13 @@
     <div class="noticias">
         <div class="slide">
             <ngb-carousel>
-                <ng-template ngbSlide *ngFor="let slide of noticias">
+                <ng-template ngbSlide *ngFor="let slide of listNoticias">
                     <h5>{{slide.titulo}}</h5>
                     <div class="picsum-img-wrapper">
                         <img src="{{slide.img}}" alt="Random first slide">
                     </div>
                     <div class="desc">
-                        <p>{{slide.desc}}</p>
+                        <p>{{slide.texto}}</p>
                         <h6>Veja a notícia completa!</h6>
                         <button class="link" (click)="getLink(slide.link)">Ir para a notícia</button>
                     </div>

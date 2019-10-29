@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Noticia } from '../models/noticia';
+import { Evento } from '../models/evento';
 
 
 
@@ -26,6 +27,17 @@ export class NoticiaService {
 
         return this.http
             .get<Noticia[]>(endpoint, {
+                headers
+            })
+            .toPromise();
+    }
+
+    getListEvento(): Promise<Evento[]> {
+        const endpoint = `${environment.http_backend}/evento/listar`;
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this.http
+            .get<Evento[]>(endpoint, {
                 headers
             })
             .toPromise();
