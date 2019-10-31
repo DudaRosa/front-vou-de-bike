@@ -1,13 +1,13 @@
 <div class="cupom">
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Cupons de Desconto da {{item.titulo}}</h4>
+        <h4 class="modal-title" id="modal-basic-title">Cupons de Desconto da {{item}}</h4>
         <img src="../assets/img/sites/icon_cupom.png" class="img-cupom">
         <button type="button" class="close" aria-label="Close" (click)="close()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 
-    <div class="table-dialog scrollbar">
+    <div class="table-dialog scrollbar" *ngIf="cupons.length != 0">
         <table class="table table-striped">
             <tbody>
                 <tr *ngFor="let cupom of cupons">
@@ -17,8 +17,18 @@
                     <td>Código: <b>{{ cupom.cupom }}</b></td>
                 </tr>
             </tbody>
+
         </table>
     </div>
+    <span *ngIf="cupons.length == 0">
+        <div class="card" *ngIf="cupons.length == 0">
+            <div class="card-body" >
+                <div class="input-group">
+                    Não há cupons no momento
+                </div>
+            </div>
+        </div>
+    </span>
 
 
     <button class="link" [style.borderColor]="item.borderColor" (click)="getCupons(item.link)">Ir para o site</button>

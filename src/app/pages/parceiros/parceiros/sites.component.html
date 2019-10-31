@@ -1,15 +1,16 @@
 <div id="general">
     <div class="titulo">
-        <p>Vem cá, alugar a sua bike!</p>
+        <p>Vem cá, ver os nossos parceiros!</p>
     </div>
     <div class="bloco-parceiros">
-        <p class="sub-titulo"> Temos algumas indicações para você que não sabe onde alugar as bikes:</p>
+        <p class="sub-titulo"> Temos algumas indicações para você que não sabe onde alugar e comprar itens de Bikes:</p>
 
         <div class="scrollbar">
             <div *ngFor="let item of itemParceiros1">
                 <div class="parceiros" [style.borderColor]="item.borderColor">
                     <img class="img" src={{item.img}}>
-                    <p class="titulo-p">Que tal alugar sua bike hoje com a {{ item.titulo}} ?</p>
+                    <p *ngIf="item.categoria === 'alugar'" class="titulo-p">Que tal alugar sua bike hoje com a {{ item.titulo}} ?</p>
+                    <p *ngIf="item.categoria === 'comprar'" class="titulo-p">Que tal comprar itens de bike hoje com a {{ item.titulo}} ?</p>
                     <p class="descricao">Preparamos um cupom para você, basta ir em “Ver Cupom”.</p>
                     <button class="btn-cupons" (click)="openDialogCupom(item)"> VER CUPOM</button>
                 </div>

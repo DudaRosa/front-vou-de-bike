@@ -2,19 +2,85 @@
     <div class="titulo">
         <p>Olhe como é fácil ver se o caminho está perfeito hoje!</p>
     </div>
-    <div class="tempo-real"></div>
+    <div class="tempo-real">
+        <div class="previsao-hoje">
+            <p class="texto-map"><i class="fa fa-map-marker" id="icon-map"></i>São paulo - SP</p>
+            <img class="clima-hoje" src="../assets/img/clima/sol-nuvem.PNG">
+            <div class="temp-hoje">25º</div>
+            <div class="desc-hoje">Poucas nuvens</div>
+        </div>
+        <div class="bloco-previsao">
+            <h6>Previsão de Hoje:</h6>
+            <p class="texto-prev-hoje">
+                <i class="fa fa-angle-up" style="color: brown;" id="icon-prev-hoje"></i>
+                25º</p>
+            <div class="s"></div>
+            <p class="texto-prev-hoje">
+                <i class="fa fa-angle-down" style="color: #323290eb;" aria-hidden="true" id="icon-prev-hoje"></i>
+                15º</p>
+        </div>
+        <div class="table-hoje">
+            <table class="table table-striped" style=" width: 50%;
+            float: inherit; border-right-style: groove;
+            border-right-color: #16a086;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <i class="fa fa-tint" aria-hidden="true" style="color:darkcyan"></i>
+                            Prob. de Chuva
+                            <div class="table-itens">0% - 0mm</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="../../../assets/img/clima/icon-vento.png" class="icon-vento">
+                            Vento
+                            <div class="table-itens">13 km/h - NE</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="fa fa-tint" aria-hidden="true" style="color:darkcyan"></i>
+                            Umidade
+                            <div class="table-itens">23%</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-striped" style="width: 50%; float: right; margin-top: 5%;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="../../../assets/img/clima/por-do-sol.png" class="icon-vento">
+                            Nascer do Sol
+                            <div class="table-itens">05:47</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="../../../assets/img/clima/por-do-sol.png" class="icon-vento">
+                            Pôr do Sol
+                            <div class="table-itens">19:05</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
     <div class="tempo-semana">
-        <div class="dias" *ngFor="let t of temp;">
-            <div class="title-dias">{{t.dia}}</div>
-            <div class="maxima">
-                <i class="fa fa-arrow-up" style="color:red;"></i>
-                {{t.maxima}}
+        <div class="bloco-semana" *ngFor="let t of temp">
+            <h6 style="float: right;">{{t.data}}</h6>
+            <h4 class="texto-dia-semana">{{t.dia}}</h4>
+            <div class="temp">
+                <p class="texto-prev-hoje">
+                    <i class="fa fa-angle-up" style="color: brown;" id="icon-prev-hoje"></i>
+                    {{t.maxima}}º</p>
+                <div class="s"></div>
+                <p class="texto-prev-hoje">
+                    <i class="fa fa-angle-down" style="color: #323290eb;" aria-hidden="true" id="icon-prev-hoje"></i>
+                    {{t.minima}}º</p>
             </div>
-            <div class="minima">
-                <div class="divider"></div>
-                <i class="fa fa-arrow-down" style="color:rgba(6, 6, 218, 0.644);"></i>
-                {{t.minima}}
-            </div>
-        </div>          
+        </div>
     </div>
 </div>

@@ -1,0 +1,109 @@
+#general {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+}
+.calendario{
+  width: 50%;
+  height: 80vh;
+  padding: 5% 1% 0% 5%;
+}
+
+.noticias{
+  width: 50%;
+  height: 80vh;
+  padding: 4% 5%;
+}
+
+ngb-datepicker {
+  border: 1px solid #16a086;
+  border-radius: .25rem;
+  display: inline-block;
+
+}
+
+.btn .btn-link {
+  font-weight: 400;
+  color: #667c78 !important;
+  text-decoration: none;
+  }
+
+.eventos{
+  width: 100%;
+  height: 13%;
+  float: right;
+  margin-top: 5%;
+  .titulo{
+    margin-left: 30%;
+    margin-bottom: 0%;
+  }
+  .desc{
+    font-size: 0.8rem;
+    margin: 0%;
+    margin-left: 30%;
+  }
+}
+.dia-evento{
+  width: 24%;
+  height: 100%;
+  background-color: #16a086;
+  border-radius: 50px;
+  padding: 4%;
+  float: left;
+  .dia{
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+.scrollbar {
+  flex-grow: 1;
+  overflow-y: scroll;
+  height: 64vh;
+  margin-top: 4%;
+}
+.separador{
+  width: 2px;
+  height: 100%;
+  float: right;
+  margin-top: 2%;
+  background-color: #16a086;
+}
+.slide{
+  height: 20rem;
+}
+img{
+  height: 20rem;
+  width: 100%;
+}
+.desc{
+  p{
+    margin-top: 1%;
+  }
+} 
+.link{
+    margin-left: 39%;
+    padding: 1% 2%;
+    background-color: transparent;
+    border-radius: 6px;
+    color: #414141;
+    border-color: #16a086;
+  }
+
+  .bloco-eventos2{
+    height: 100%;
+    float: right;
+    width: 60%;
+  }
+  .bloco-eventos1{
+    height: 100%;
+    float: left;
+
+  }
+  .event-mes{
+    padding: 2% 3.5rem;
+    background-color: transparent;
+    border-radius: 6px;
+    color: #414141;
+    border-color: #16a086;
+  }

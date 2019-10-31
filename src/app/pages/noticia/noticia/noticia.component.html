@@ -1,0 +1,46 @@
+<div id="general">
+
+    <div class="calendario">
+        <div class="bloco-eventos1">
+            <h6>Escolha uma Data:</h6>
+            <ngb-datepicker [(ngModel)]="date" [startDate]="date" (select)="onDateSelection($event)"></ngb-datepicker>
+
+            <h6 style="margin-top: 10%;">Veja os eventos do mês todo!</h6>
+            <button class="event-mes" (click)="getEventoMes()">Eventos dos mês</button>
+        </div>
+
+        <div class="bloco-eventos2">
+            <h6 style="float: left; margin-left: 20px;">Eventos:</h6>
+            <div class="scrollbar">
+                <div class="eventos" *ngFor="let evento of listEvento">
+                    <div class="dia-evento">
+                        <p class="dia">{{ evento.data}}</p>
+                    </div>
+                    <h6 class="titulo">{{evento.titulo}}</h6>
+                    <p class="desc">{{evento.descricao}}</p>
+                    <p class="desc">{{evento.horario}}</p>
+                </div>
+                <div *ngIf="listEvento.length == 0">
+                    <h6 style="margin-top: 5%">Não tem evento nessa data.</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="separador"></div>
+    <div class="noticias">
+        <div class="slide">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slide of listNoticias">
+                    <h5>{{slide.titulo}}</h5>
+                    <div class="picsum-img-wrapper">
+                        <img src="{{slide.img}}" alt="Random first slide">
+                    </div>
+                    <div class="desc">
+                        <p>{{slide.texto}}</p>
+                        <h6>Veja a notícia completa!</h6>
+                        <button class="link" (click)="getLink(slide.link)">Ir para a notícia</button>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
