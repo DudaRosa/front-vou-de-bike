@@ -35,7 +35,7 @@ const routes: Routes = [
         path: 'noticia',
         component: NoticiaComponent,
         resolve: {
-            data: NoticiaResolver
+            // data: NoticiaResolver
         }
     },
     {

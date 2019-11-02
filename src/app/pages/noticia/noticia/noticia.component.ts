@@ -35,7 +35,8 @@ export class NoticiaComponent implements OnInit {
   event: any = [];
   listNoticias: Noticia[];
   listEvento: Evento[];
-
+  dateEvento: Date;
+  novaListaEvento: Evento[];
   // eventos: any = [
   //   { data: 7, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
   //   { data: 13, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
@@ -81,12 +82,21 @@ export class NoticiaComponent implements OnInit {
     return eventos.filter(e => e.data === date);
   }
   ngOnInit() {
-    this.activatedRoute.data.subscribe(data => {
-      this.listNoticias = data.data[0];
-      this.listEvento = data.data[1];
-    });
+    // this.activatedRoute.data.subscribe(data => {
+    //   this.listNoticias = data.data[0];
+    //   this.listEvento = data.data[1];
+    //   this.converterDataEvento(this.listEvento);
+    // });
+    this.converterDataEvento('08/12/2019');
   }
-
+  converterDataEvento(eventoPromise){
+       this.dateEvento = new Date(eventoPromise);
+       console.log("teste da data >> ", this.dateEvento);
+       for (let i = 0; i < this.listEvento.length; i++) {
+    
+         
+       }
+  }
 
   getEventoMes() {
     this
