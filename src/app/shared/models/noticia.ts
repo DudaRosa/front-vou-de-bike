@@ -1,7 +1,8 @@
 export class Noticia {
     id: number;
-    dia: string;
+    data: string;
     titulo: string;
-    texto: string;
+    descricao: string;
     link: string;
+    img: string;
 }
