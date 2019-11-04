@@ -4,7 +4,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" placeholder="Pesquisar ou escolher o ponto de partida...">
+                        <input id="dateOfBirth" class="form-control"
+                            placeholder="Pesquisar ou escolher o ponto de partida...">
+                        <button *ngIf="ativarBtnRota == false" class="rota cancelar"><i class="fa fa-window-close"
+                                aria-hidden="true"></i></button>
                         <div *ngIf="ativarBtnRota" style="height: 100%;">
                             <button class="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <button class="rota" (click)="getAtivarRota()">
@@ -12,9 +15,11 @@
                             </button>
                         </div>
                         <div *ngIf="ativarBtnRota == false" class="bloco-rota">
-                                <input id="dateOfBirth" class="form-control" placeholder="Escolher destino..." style="width: 90%; float: left;">
-                                <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </div>
+                            <input id="dateOfBirth" class="form-control" placeholder="Escolher destino..."
+                                style="width: 90%; float: left;">
+                            <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search"
+                                    aria-hidden="true"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,11 +82,11 @@
                         </div>
                         <div class="separador"></div>
                         <h5 class="ask-like">Você irá de bicicleta hoje?</h5>
-                        <button class="like yes">
+                        <button class="like">
                             <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
                         </button>
-                        <button class="like no">
-                            <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
+                        <button class="like">
+                            <img id="icon-no" src="../../../../assets/img/mapa/icon-broken-heart.png">
                         </button>
                     </div>
                 </div>
@@ -90,7 +95,7 @@
     </div>
 
     <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
 
 </div>
