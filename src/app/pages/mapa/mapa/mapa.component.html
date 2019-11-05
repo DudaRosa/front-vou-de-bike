@@ -5,11 +5,11 @@
                 <div class="card-body">
                     <div class="input-group">
                         <input id="dateOfBirth" class="form-control"
-                            placeholder="Pesquisar ou escolher o ponto de partida...">
-                        <button *ngIf="ativarBtnRota == false" class="rota cancelar"><i class="fa fa-window-close"
-                                aria-hidden="true"></i></button>
+                            placeholder="Pesquisar ou escolher o ponto de partida..." [(ngModel)]="enderecoPesquisa">
+                        <button *ngIf="ativarBtnRota == false" class="rota cancelar" ><i class="fa fa-window-close"
+                                aria-hidden="true" ></i></button>
                         <div *ngIf="ativarBtnRota" style="height: 100%;">
-                            <button class="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button class="pesquisa" (click)="pesquisaLocal()" ngbTooltip="Will disappear in 5s"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <button class="rota" (click)="getAtivarRota()">
                                 <img style="width: 2.3rem;" src="../../../../assets/img/mapa/route.png">
                             </button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastService } from 'src/app/shared/services/toast.service';
 
 @Component({
   selector: 'app-mapa',
@@ -9,19 +10,34 @@ export class MapaComponent implements OnInit {
 
   ativarResumo: boolean = false;
   ativarBtnRota: boolean = true;
-  lat: number = -23.8779431;
-  lng: number = -49.8046873;
+  lat: number = -23.6862377;
+  lng: number = -46.7618362;
   zoom: number = 15;
+  enderecoPesquisa: string;
 
-  constructor() { }
+  constructor(public toastService: ToastService) { }
 
   ngOnInit() {
   }
 
-  getAtivarRota(){
+  getAtivarRota() {
     this.ativarBtnRota = false;
   }
-  getAtivarResumo(){
+  getAtivarResumo() {
     this.ativarResumo = true;
   }
+
+  pesquisaLocal() {
+    if (this.enderecoPesquisa != null) {
+      console.log("Teste do local >>  ", this.enderecoPesquisa)
+    }
+    else {
+      this.toastService.show('Insira o endereço !!', {timer:4});
+    }
+
+  }
+
+
+
+
 }
