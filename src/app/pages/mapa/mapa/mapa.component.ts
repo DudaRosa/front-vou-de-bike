@@ -54,7 +54,7 @@ export class MapaComponent implements OnInit {
 
   pesquisaLocal() {
     if (this.enderecoOrigem != null) {
-      this.mapaService.getLocalMapa();
+      this.mapaService.getLocalMapa(this.enderecoOrigem);
     }
     else {
       // this.toastService.show('Insira o endereço !!', {timer:4});

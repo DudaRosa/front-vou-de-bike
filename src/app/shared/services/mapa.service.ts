@@ -11,7 +11,7 @@ export class MapaService {
   ) { }
 
   getRotaMapa(origem: string, destino: string): Promise<Mapa> {
-    const endpoint = `${environment.http_backend}/mapa/listar`;
+    const endpoint = `${environment.http_backend}/mapa/rota/${origem}/${destino}`;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.http
@@ -21,8 +21,8 @@ export class MapaService {
       .toPromise();
   }
 
-  getLocalMapa(): Promise<Mapa[]> {
-    const endpoint = `${environment.http_backend}/mapa/listar`;
+  getLocalMapa(origem: string): Promise<Mapa[]> {
+    const endpoint = `${environment.http_backend}/mapa/local/${origem}`;
     // https://maps.googleapis.com/maps/api/geocode/json?address=60+comantante%20bras%20dias%20de%20aguiar+Brasil+SP&key=AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk
 
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
