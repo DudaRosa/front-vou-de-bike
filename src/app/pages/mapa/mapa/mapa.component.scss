@@ -29,6 +29,11 @@ agm-map {
   background-color: transparent;
   border-color: transparent;
   padding: 0% 10%;
+   &.cancelar{
+    font-size: 1.3rem;
+    color: #dc3545;
+    padding: 0% 2% !important;
+   }
 }
 
 div.x{ 
@@ -83,18 +88,21 @@ h5{
   border-radius: 100%;
   margin-left: 2%;
   border: none;
-    &.yes{
-      background-color: #fe3f5c;
-    }
-    &.no{
-      background-color: #24bdff;
-    }
+  background-color: transparent;
+  border-width: medium;
+  border-style: solid;
+  border-color: #e8594b;
 }
 
 #icon-yes{
-  margin: 28% 0%;
-  color: white;
-  font-size: 1.7rem;
+  color: #e8594b;
+  font-size: 1.8rem;
+  margin-top: 0.2rem;
+}
+
+#icon-no{
+  margin: 21% 0%;
+  width: 1.8rem;  
 }
 .bloco-rota{
   width: 100%;

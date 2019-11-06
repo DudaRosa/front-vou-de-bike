@@ -35,16 +35,18 @@ export class NoticiaComponent implements OnInit {
   event: any = [];
   listNoticias: Noticia[];
   listEvento: Evento[];
+  dateEvento: Date;
+  novaListaEvento: Evento[];
 
-  // eventos: any = [
-  //   { data: 7, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  //   { data: 13, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  //   { data: 25, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  //   { data: 28, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  //   { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  //   { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  //   { data: 15, titulo: "Pedalada São Paulo", local: "Parque Ibirapuera", horario: "08h00 - 10h00" },
-  // ]
+  eventos: any = [
+    { data: "12-08-2019", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera" },
+    { data: "12-11-2019", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera" },
+    { data: "12-22-2019", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera" },
+    { data: "12-21-2019", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera" },
+    { data: "12-03-2019", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera" },
+    { data: "12-17-2019", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera" },
+    { data: "08-11-2019", titulo: "Pedalada São Paulo", local: "Parque Ibirapuera" },
+  ]
 
   noticias: any = [
     {
@@ -84,9 +86,18 @@ export class NoticiaComponent implements OnInit {
     this.activatedRoute.data.subscribe(data => {
       this.listNoticias = data.data[0];
       this.listEvento = data.data[1];
+    this.novaListaEvento = this.converterDataEvento(this.listEvento);
     });
-  }
 
+  }
+  converterDataEvento(listaEvento) {
+
+    for (let i = 0; i < listaEvento.length; i++) {
+
+      listaEvento[i].data = new Date(listaEvento[i].data).getUTCDate();
+    }
+    return listaEvento;
+  }
 
   getEventoMes() {
     this

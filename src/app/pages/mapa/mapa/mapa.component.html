@@ -4,20 +4,27 @@
             <div class="card">
                 <div class="card-body">
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" placeholder="Pesquisar ou escolher o ponto de partida...">
+                        <input id="dateOfBirth" class="form-control"
+                            placeholder="Pesquisar ou escolher o ponto de partida..." [(ngModel)]="enderecoOrigem">
+                        <button *ngIf="ativarBtnRota == false" class="rota cancelar" ><i class="fa fa-window-close"
+                                aria-hidden="true" ></i></button>
                         <div *ngIf="ativarBtnRota" style="height: 100%;">
-                            <button class="pesquisa" (click)="getLocal()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button class="pesquisa" (click)="pesquisaLocal()" ngbTooltip="Will disappear in 5s"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <button class="rota" (click)="getAtivarRota()">
                                 <img style="width: 2.3rem;" src="../../../../assets/img/mapa/route.png">
                             </button>
                         </div>
                         <div *ngIf="ativarBtnRota == false" class="bloco-rota">
-                                <input id="dateOfBirth" class="form-control" placeholder="Escolher destino..." style="width: 90%; float: left;">
-                                <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </div>
+                            <input id="dateOfBirth" class="form-control" placeholder="Escolher destino..."
+                                style="width: 90%; float: left;" [(ngModel)]="enderecoDestino">
+                            <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search"
+                                    aria-hidden="true"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <app-toasts></app-toasts>
 
             <div class="card" *ngIf="ativarResumo">
                 <div class="card-body">
@@ -77,11 +84,11 @@
                         </div>
                         <div class="separador"></div>
                         <h5 class="ask-like">Você irá de bicicleta hoje?</h5>
-                        <button class="like yes">
+                        <button class="like">
                             <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
                         </button>
-                        <button class="like no">
-                            <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
+                        <button class="like">
+                            <img id="icon-no" src="../../../../assets/img/mapa/icon-broken-heart.png">
                         </button>
                     </div>
                 </div>
@@ -89,8 +96,13 @@
         </div>
     </div>
 
-    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
+    <!-- <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+       
+    </agm-map> -->
+
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker  *ngIf="ativarBtnRota" [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-direction *ngIf="ativarBtnRota" [origin]="origin" [destination]="destination"></agm-direction>
+      </agm-map>
 
 </div>

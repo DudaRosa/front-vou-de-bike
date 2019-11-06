@@ -6,43 +6,43 @@
         <div class="previsao-hoje">
             <p class="texto-map"><i class="fa fa-map-marker" id="icon-map"></i>São paulo - SP</p>
             <img class="clima-hoje" src="../assets/img/clima/sol-nuvem.PNG">
-            <div class="temp-hoje">25º</div>
-            <div class="desc-hoje">Poucas nuvens</div>
+            <div class="temp-hoje">{{listClima.temp}}</div>
+            <div class="desc-hoje">{{listClima.description}}</div>
         </div>
         <div class="bloco-previsao">
-            <h6>Previsão de Hoje:</h6>
+            <h6>Horário:</h6>
             <p class="texto-prev-hoje">
-                <i class="fa fa-angle-up" style="color: brown;" id="icon-prev-hoje"></i>
-                25º</p>
-            <div class="s"></div>
+                <!-- <i class="fa fa-angle-up" style="color: brown;" id="icon-prev-hoje"></i> -->
+                {{listClima.time}}</p>
+            <!-- <div class="s"></div>
             <p class="texto-prev-hoje">
                 <i class="fa fa-angle-down" style="color: #323290eb;" aria-hidden="true" id="icon-prev-hoje"></i>
-                15º</p>
+                15º</p> -->
         </div>
         <div class="table-hoje">
             <table class="table table-striped" style=" width: 50%;
             float: inherit; border-right-style: groove;
             border-right-color: #16a086;">
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             <i class="fa fa-tint" aria-hidden="true" style="color:darkcyan"></i>
                             Prob. de Chuva
-                            <div class="table-itens">0% - 0mm</div>
+                            <div class="table-itens">{{listClima.humidity}}%</div>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td>
                             <img src="../../../assets/img/clima/icon-vento.png" class="icon-vento">
                             Vento
-                            <div class="table-itens">13 km/h - NE</div>
+                            <div class="table-itens">{{listClima.wind_speedy}}km/h - NE</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <i class="fa fa-tint" aria-hidden="true" style="color:darkcyan"></i>
                             Umidade
-                            <div class="table-itens">23%</div>
+                            <div class="table-itens">{{listClima.humidity}}%</div>
                         </td>
                     </tr>
                 </tbody>
@@ -53,14 +53,14 @@
                         <td>
                             <img src="../../../assets/img/clima/por-do-sol.png" class="icon-vento">
                             Nascer do Sol
-                            <div class="table-itens">05:47</div>
+                            <div class="table-itens">{{listClima.sunrise}}</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <img src="../../../assets/img/clima/por-do-sol.png" class="icon-vento">
                             Pôr do Sol
-                            <div class="table-itens">19:05</div>
+                            <div class="table-itens">{{listClima.sunset}}</div>
                         </td>
                     </tr>
                 </tbody>
@@ -69,17 +69,17 @@
 
     </div>
     <div class="tempo-semana">
-        <div class="bloco-semana" *ngFor="let t of temp">
-            <h6 style="float: right;">{{t.data}}</h6>
-            <h4 class="texto-dia-semana">{{t.dia}}</h4>
+        <div class="bloco-semana" *ngFor="let t of listClima.forecast">
+            <h6 style="float: right;">{{t.date}}</h6>
+            <h4 class="texto-dia-semana">{{t.weekday}}</h4>
             <div class="temp">
                 <p class="texto-prev-hoje">
                     <i class="fa fa-angle-up" style="color: brown;" id="icon-prev-hoje"></i>
-                    {{t.maxima}}º</p>
+                    {{t.max}}º</p>
                 <div class="s"></div>
                 <p class="texto-prev-hoje">
                     <i class="fa fa-angle-down" style="color: #323290eb;" aria-hidden="true" id="icon-prev-hoje"></i>
-                    {{t.minima}}º</p>
+                    {{t.min}}º</p>
             </div>
         </div>
     </div>

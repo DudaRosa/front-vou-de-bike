@@ -22,8 +22,6 @@ export class NoticiaResolver implements Resolve<any> {
       .noticiaService
       .getListEvento();
 
-
-
     return Promise.all([
       noticiaPromise,
       eventoPromise

@@ -18,7 +18,10 @@ import { AgmCoreModule } from '@agm/core';
 import { ToastComponent } from './toast/toast.component';
 import { ClimaResolver } from '../clima/resolvers/clima.resolver';
 import { ClimaService } from 'src/app/shared/services/clima.service';
+import { ToastService } from 'src/app/shared/services/toast.service';
 import { MapaService } from 'src/app/shared/services/mapa.service';
+import { FormsModule } from '@angular/forms';
+import { AgmDirectionModule } from 'agm-direction'; 
 
 @NgModule({
   imports: [
@@ -27,9 +30,11 @@ import { MapaService } from 'src/app/shared/services/mapa.service';
     RouterModule,
     NgbModule,
     ParceirosModule,
+    FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk'
-    })
+    }),
+    AgmDirectionModule
   ],
   declarations: [
     HeaderComponent,
@@ -46,7 +51,8 @@ import { MapaService } from 'src/app/shared/services/mapa.service';
     MapaComponent,
     NoticiaComponent,
     SobreComponent,
-    HomeComponent
+    HomeComponent,
+    ToastComponent
   ],
   providers:[
     MapaResolver,
@@ -56,7 +62,7 @@ import { MapaService } from 'src/app/shared/services/mapa.service';
     MapaService,
     NoticiaService,
     ParceiroResolver,
-    XMLHttpRequest
+    ToastService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

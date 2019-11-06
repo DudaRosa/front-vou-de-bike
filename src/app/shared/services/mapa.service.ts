@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { HttpClient, HttpHeaders } from "@angular/common/http"
-import { map } from "rxjs/operators"
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Mapa } from '../models/mapa';
 
 
 @Injectable()
@@ -11,21 +10,28 @@ export class MapaService {
     private http: HttpClient
   ) { }
 
-  getMapa(): Observable<any> {
+  getRotaMapa(origem: string, destino: string): Promise<Mapa> {
+    const endpoint = `${environment.http_backend}/mapa/listar`;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
+    return this.http
+      .get<Mapa>(endpoint, {
+        headers
+      })
+      .toPromise();
+  }
 
+  getLocalMapa(): Promise<Mapa[]> {
+    const endpoint = `${environment.http_backend}/mapa/listar`;
+    // https://maps.googleapis.com/maps/api/geocode/json?address=60+comantante%20bras%20dias%20de%20aguiar+Brasil+SP&key=AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk
 
-    return this.http.get<any>(environment.http_url_mapa_google,{headers, withCredentials: environment.withCredentials})
-    .pipe(map((res: any) => res.json()));
-      
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-
-    // const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    // const headers = new HttpHeaders();
-    // return this.http.get(endpoint, {
-    //   headers
-    // })
+    return this.http
+      .get<Mapa[]>(endpoint, {
+        headers
+      })
+      .toPromise();
   }
 
   // getTeste2(){
