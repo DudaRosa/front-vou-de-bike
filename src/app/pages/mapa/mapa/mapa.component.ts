@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ToastService } from 'src/app/shared/services/toast.service';
 import { MapaService } from 'src/app/shared/services/mapa.service';
 import { Mapa } from 'src/app/shared/models/mapa';
+import { Local } from 'src/app/shared/models/local';
+
 
 @Component({
   selector: 'app-mapa',
@@ -12,8 +14,8 @@ export class MapaComponent implements OnInit {
   listLocal: any;
   ativarResumo: boolean = false;
   ativarBtnRota: boolean = true;
-  lat: number = -23.6862377;
-  lng: number = -46.7618362;
+  public lat: number = -23.6862377;
+  public lng: number = -46.7618362;
   zoom: number = 15;
   enderecoOrigem: string;
   enderecoDestino: string;
@@ -38,15 +40,15 @@ export class MapaComponent implements OnInit {
   getAtivarResumo() {
 
     if (this.enderecoOrigem != null && this.enderecoDestino != null) {
-     
-  
+
+
       this
         .mapaService
         .getRotaMapa(this.enderecoOrigem, this.enderecoDestino)
         .then((rota: Mapa) => {
 
-          this.origin = { lat: rota.start_location.lat, lng: rota.start_location.lng };
-          this.destination = { lat: rota.end_location.lat, lng: rota.end_location.lng };
+          this.origin = { lat: rota[0].start_location.lat, lng: rota[0].start_location.lng };
+          this.destination = { lat: rota[0].end_location.lat, lng: rota[0].end_location.lng };
           this.ativarResumo = true;
         })
     }
@@ -54,7 +56,15 @@ export class MapaComponent implements OnInit {
 
   pesquisaLocal() {
     if (this.enderecoOrigem != null) {
-      this.mapaService.getLocalMapa(this.enderecoOrigem);
+      this.mapaService
+        .getLocalMapa(this.enderecoOrigem)
+        .then((local: Local) => {
+          console.log("local >> ", local);
+          this.lat = local[0].geometry.location.lat;
+          this.lng = local[0].geometry.location.lng;
+          this.ativarResumo = false;
+          this.ativarBtnRota = true;
+        })
     }
     else {
       // this.toastService.show('Insira o endereço !!', {timer:4});
