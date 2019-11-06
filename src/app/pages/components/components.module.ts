@@ -18,6 +18,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ToastComponent } from './toast/toast.component';
 import { ClimaResolver } from '../clima/resolvers/clima.resolver';
 import { ClimaService } from 'src/app/shared/services/clima.service';
+import { ToastService } from 'src/app/shared/services/toast.service';
 import { MapaService } from 'src/app/shared/services/mapa.service';
 import { FormsModule } from '@angular/forms';
 
@@ -48,7 +49,8 @@ import { FormsModule } from '@angular/forms';
     MapaComponent,
     NoticiaComponent,
     SobreComponent,
-    HomeComponent
+    HomeComponent,
+    ToastComponent
   ],
   providers:[
     MapaResolver,
@@ -57,7 +59,8 @@ import { FormsModule } from '@angular/forms';
     ClimaService,
     MapaService,
     NoticiaService,
-    ParceiroResolver
+    ParceiroResolver,
+    ToastService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

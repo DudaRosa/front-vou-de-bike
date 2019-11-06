@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from 'src/app/shared/services/toast.service';
+import { MapaService } from 'src/app/shared/services/mapa.service';
 
 @Component({
   selector: 'app-mapa',
@@ -15,7 +16,9 @@ export class MapaComponent implements OnInit {
   zoom: number = 15;
   enderecoPesquisa: string;
 
-  constructor(public toastService: ToastService) { }
+  constructor(
+    private toastService: ToastService,
+    private mapaService:  MapaService) { }
 
   ngOnInit() {
   }
@@ -29,10 +32,14 @@ export class MapaComponent implements OnInit {
 
   pesquisaLocal() {
     if (this.enderecoPesquisa != null) {
-      console.log("Teste do local >>  ", this.enderecoPesquisa)
+      
     }
     else {
-      this.toastService.show('Insira o endereço !!', {timer:4});
+      // this.toastService.show('Insira o endereço !!', {timer:4});
+      this.toastService.show('Insira o endereço !!', {
+        delay: 2000,
+        autohide: true
+      });
     }
 
   }
