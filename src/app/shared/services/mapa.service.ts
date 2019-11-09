@@ -14,7 +14,7 @@ export class MapaService {
   getRotaMapa(origem: string, destino: string): Promise<Mapa> {
     const endpoint = `${environment.http_backend}/mapa/rota/${origem}/${destino}`;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
+    // https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk
     return this.http
       .get<Mapa>(endpoint, {
         headers
@@ -34,14 +34,4 @@ export class MapaService {
       })
       .toPromise();
   }
-
-  // getTeste2(){
-  //   fetch('https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk/')
-  //   .then(function(response) {
-  //     return response.json();
-  //   })
-  //   .then(function(json) {
-  //     console.log("teste da dudaaa do json >> ",JSON.stringify(json.results));
-  //   })
-  // }
 }

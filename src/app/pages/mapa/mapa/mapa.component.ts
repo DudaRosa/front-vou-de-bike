@@ -3,6 +3,8 @@ import { ToastService } from 'src/app/shared/services/toast.service';
 import { MapaService } from 'src/app/shared/services/mapa.service';
 import { Mapa } from 'src/app/shared/models/mapa';
 import { Local } from 'src/app/shared/models/local';
+import { ActivatedRoute } from '@angular/router';
+import { Clima } from 'src/app/shared/models/clima';
 
 
 @Component({
@@ -21,15 +23,19 @@ export class MapaComponent implements OnInit {
   enderecoDestino: string;
   public origin: any;
   public destination: any;
-
+  resumoClima: Clima;
+  tempClima: number;
+  umidadeClima: number;
 
   constructor(
     private toastService: ToastService,
-    private mapaService: MapaService) { }
+    private mapaService: MapaService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.origin = { lat: this.lat, lng: this.lng };
-    // this.destination = { lat: -23.645384, lng: -46.754433 };
+    this.activatedRoute.data.subscribe(data => {
+      this.resumoClima = data.data[0];
+    });
 
   }
 
@@ -76,7 +82,10 @@ export class MapaComponent implements OnInit {
 
   }
 
-
+  getResumoClimaProgressBar(){
+    this.tempClima = this.resumoClima.temp;
+    this.umidadeClima = this.resumoClima.humidity;
+  }
 
 
 }

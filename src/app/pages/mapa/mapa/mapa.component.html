@@ -63,19 +63,19 @@
                         <div class="separador"></div>
                         <h5>Clima:</h5>
                         <div class="resumo">
-                            <h6>Chuva</h6>
+                            <h6>Umidade do ar</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="primary" [value]="10" height="10px"></ngb-progressbar>
+                                <ngb-progressbar type="primary" [value]="{{umidadeClima}}" height="10px"></ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
-                                <p class="item-texto-esquerda">Não vai chover!</p>
-                                <p class="item-texto-direita">Chuva vindo!</p>
+                                <p class="item-texto-esquerda">Seco</p>
+                                <p class="item-texto-direita">Úmido</p>
                             </div>
                         </div>
                         <div class="resumo">
                             <h6>Temperatura</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="success" [value]="40" height="10px"></ngb-progressbar>
+                                <ngb-progressbar type="success" [value]="{{tempClima}}" [max]='40' height="10px"></ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Frioo</p>

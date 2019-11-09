@@ -1,27 +1,24 @@
 import { Injectable } from "@angular/core";
 import { Resolve } from "@angular/router";
+import { ClimaService } from 'src/app/shared/services/clima.service';
 
 @Injectable()
 export class MapaResolver implements Resolve<any> {
-  pertStatus: number[] = [1];
-
   constructor(
- 
+    private climaService: ClimaService
   ) { }
 
   async resolve(): Promise<any> {
 
-    
 
-    // const releasesPromise = this
-    //   .releaseService
-    //   .listReleasesShortDate()
-    //   .toPromise();
 
-   
+    const climaPromise = this
+      .climaService
+      .getListClima();
 
     return Promise.all([
-      // tasksPromise,
+      climaPromise,
+
 
     ]);
   }
