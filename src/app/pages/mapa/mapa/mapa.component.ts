@@ -63,6 +63,14 @@ export class MapaComponent implements OnInit {
           this.destination = { lat: rota[0].end_location.lat, lng: rota[0].end_location.lng };
           this.ativarResumo = true;
         })
+    } else {
+      this.toastService // message
+        .showToast({
+          title: 'Endereço incorreto', // title
+          message: 'Insira o endereço !!',
+          theme: 'default', // type
+          timer: 4 // timer
+        });
     }
   }
 
@@ -80,7 +88,14 @@ export class MapaComponent implements OnInit {
         })
     }
     else {
-      this.toastService.default('Insira o endereço !!');
+      // this.toastService.default('Insira o endereço !!');
+      this.toastService // message
+        .showToast({
+          title: 'Endereço incorreto', // title
+          message: 'Insira o endereço !!',
+          theme: 'default', // type
+          timer: 4 // timer
+        });
     }
 
   }
@@ -100,14 +115,19 @@ export class MapaComponent implements OnInit {
       // this.listParceiros.push(this.itemParceiros1[listIndexParceiros]);
       // this.toastService.default( this.itemParceiros1[listIndexParceiros].titulo);
       this.toastService // message
-      .showToast({
-        title: 'Parceiros próximos:', // title
-        message:  this.itemParceiros1[listIndexParceiros].titulo,
-        theme: 'default', // type
-        timer: 4 // timer
-      });
+        .showToast({
+          title: 'Parceiros próximos:', // title
+          message: this.itemParceiros1[listIndexParceiros].titulo,
+          theme: 'default', // type
+          timer: 4 // timer
+        });
     }
 
+  }
+
+  btnVoltar(){
+    this.ativarResumo = false;
+    this.ativarBtnRota = true;
   }
 
 }

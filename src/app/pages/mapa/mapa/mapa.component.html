@@ -7,7 +7,7 @@
                     <div class="input-group">
                         <input id="dateOfBirth" class="form-control" title="Ex: 10, Rua xx" placeholder="Pesquisar ou escolher o ponto de partida..."
                             [(ngModel)]="enderecoOrigem">
-                        <button *ngIf="ativarBtnRota == false" class="rota cancelar"><i class="fa fa-window-close"
+                        <button *ngIf="ativarBtnRota == false" (click)="btnVoltar()" placement="right" ngbTooltip="Voltar." class="rota cancelar"><i class="fa fa-sign-out"
                                 aria-hidden="true"></i></button>
                         <div *ngIf="ativarBtnRota" style="height: 100%;">
                             <button class="pesquisa" (click)="pesquisaLocal()" ngbTooltip="Will disappear in 5s"><i
