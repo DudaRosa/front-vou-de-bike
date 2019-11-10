@@ -53,7 +53,7 @@ export class MapaComponent implements OnInit {
   }
   getAtivarResumo() {
 
-    if (this.enderecoOrigem != null && this.enderecoDestino != null) {
+    if (this.enderecoOrigem && this.enderecoDestino && this.enderecoDestino.trim()) {
 
       this
         .mapaService
