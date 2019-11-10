@@ -17,7 +17,7 @@ import { NoticiaService } from './services/noticia.service';
   ],
   providers: [
     ParceirosService,
-    NoticiaService
+    NoticiaService,
   ]
 })
 export class SharedModule { }

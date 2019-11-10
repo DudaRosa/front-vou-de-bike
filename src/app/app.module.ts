@@ -8,6 +8,7 @@ import { ComponentsModule } from './pages/components/components.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
+import { ToasterModule } from './pages/components/toaster/toaster.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AgmCoreModule } from '@agm/core';
     NgbModule,
     SharedModule,
     HttpClientModule,
+    ToasterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

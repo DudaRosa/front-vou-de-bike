@@ -15,13 +15,14 @@ import { ParceirosModule } from '../parceiros/parceiros.module';
 import { ParceiroResolver } from '../parceiros/resolvers/parceiro.resolver';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
 import { AgmCoreModule } from '@agm/core';
-import { ToastComponent } from './toast/toast.component';
 import { ClimaResolver } from '../clima/resolvers/clima.resolver';
 import { ClimaService } from 'src/app/shared/services/clima.service';
-import { ToastService } from 'src/app/shared/services/toast.service';
 import { MapaService } from 'src/app/shared/services/mapa.service';
 import { FormsModule } from '@angular/forms';
 import { AgmDirectionModule } from 'agm-direction'; 
+import { ToasterModule } from './toaster/toaster.module';
+import { ToastService } from './toaster/toast.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -34,7 +35,9 @@ import { AgmDirectionModule } from 'agm-direction';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk'
     }),
-    AgmDirectionModule
+    AgmDirectionModule,
+    ToasterModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     HeaderComponent,
@@ -43,7 +46,6 @@ import { AgmDirectionModule } from 'agm-direction';
     NoticiaComponent,
     HomeComponent,
     SobreComponent,
-    ToastComponent
   ],
   exports: [
     HeaderComponent,
@@ -52,7 +54,7 @@ import { AgmDirectionModule } from 'agm-direction';
     NoticiaComponent,
     SobreComponent,
     HomeComponent,
-    ToastComponent
+    ToasterModule
   ],
   providers:[
     MapaResolver,

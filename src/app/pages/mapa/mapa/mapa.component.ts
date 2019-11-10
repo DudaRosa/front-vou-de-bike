@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastService } from 'src/app/shared/services/toast.service';
+import { ToastService } from 'src/app/pages/components/toaster/toast.service';
 import { MapaService } from 'src/app/shared/services/mapa.service';
 import { Mapa } from 'src/app/shared/models/mapa';
 import { Local } from 'src/app/shared/models/local';
@@ -13,6 +13,14 @@ import { Clima } from 'src/app/shared/models/clima';
   styleUrls: ['./mapa.component.scss']
 })
 export class MapaComponent implements OnInit {
+
+  itemParceiros1: any = [
+    { titulo: "Yellow", categoria: "alugar", link: "https://www.yellow.app/promocoes" },
+    { titulo: "Grin", categoria: "alugar", link: "https://ongrin.com/" },
+    { titulo: "Bike Sampa", categoria: "alugar", link: "https://bikeitau.com.br/bikesampa/" },
+    { titulo: "Pedala SP", categoria: "alugar", link: "http://pedalaspapp.com.br/" }
+  ];
+  listParceiros: any[];
   listLocal: any;
   ativarResumo: boolean = false;
   ativarBtnRota: boolean = true;
@@ -47,12 +55,10 @@ export class MapaComponent implements OnInit {
 
     if (this.enderecoOrigem != null && this.enderecoDestino != null) {
 
-
       this
         .mapaService
         .getRotaMapa(this.enderecoOrigem, this.enderecoDestino)
         .then((rota: Mapa) => {
-
           this.origin = { lat: rota[0].start_location.lat, lng: rota[0].start_location.lng };
           this.destination = { lat: rota[0].end_location.lat, lng: rota[0].end_location.lng };
           this.ativarResumo = true;
@@ -70,22 +76,38 @@ export class MapaComponent implements OnInit {
           this.lng = local[0].geometry.location.lng;
           this.ativarResumo = false;
           this.ativarBtnRota = true;
+          this.getParceiros();
         })
     }
     else {
-      // this.toastService.show('Insira o endereço !!', {timer:4});
-      this.toastService.show('Insira o endereço !!', {
-        delay: 2000,
-        autohide: true
-      });
+      this.toastService.default('Insira o endereço !!');
     }
 
   }
 
-  getResumoClimaProgressBar(){
+  getResumoClimaProgressBar() {
     this.tempClima = this.resumoClima.temp;
     this.umidadeClima = this.resumoClima.humidity;
   }
 
+  getParceiros() {
+    this.listParceiros.splice(0);
+    const i = Math.floor((Math.random() * 2) + 1);
+
+    for (let index = 0; index < i; index++) {
+      const listIndexParceiros = Math.floor((Math.random() * 3) + 1);
+
+      // this.listParceiros.push(this.itemParceiros1[listIndexParceiros]);
+      // this.toastService.default( this.itemParceiros1[listIndexParceiros].titulo);
+      this.toastService // message
+      .showToast({
+        title: 'Parceiros próximos:', // title
+        message:  this.itemParceiros1[listIndexParceiros].titulo,
+        theme: 'default', // type
+        timer: 4 // timer
+      });
+    }
+
+  }
 
 }

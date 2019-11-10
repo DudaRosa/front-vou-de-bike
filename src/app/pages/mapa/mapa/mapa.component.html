@@ -3,19 +3,22 @@
         <div class="y">
             <div class="card">
                 <div class="card-body">
+                    <div>Número do local, Endereço...</div>
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control"
-                            placeholder="Pesquisar ou escolher o ponto de partida..." [(ngModel)]="enderecoOrigem">
-                        <button *ngIf="ativarBtnRota == false" class="rota cancelar" ><i class="fa fa-window-close"
-                                aria-hidden="true" ></i></button>
+                        <input id="dateOfBirth" class="form-control" title="Ex: 10, Rua xx" placeholder="Pesquisar ou escolher o ponto de partida..."
+                            [(ngModel)]="enderecoOrigem">
+                        <button *ngIf="ativarBtnRota == false" class="rota cancelar"><i class="fa fa-window-close"
+                                aria-hidden="true"></i></button>
                         <div *ngIf="ativarBtnRota" style="height: 100%;">
-                            <button class="pesquisa" (click)="pesquisaLocal()" ngbTooltip="Will disappear in 5s"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button class="pesquisa" (click)="pesquisaLocal()" ngbTooltip="Will disappear in 5s"><i
+                                    class="fa fa-search" aria-hidden="true"></i></button>
                             <button class="rota" (click)="getAtivarRota()">
-                                <img style="width: 2.3rem; position: relative;" src="../../../../assets/img/mapa/route.png">
+                                <img style="width: 2.3rem; position: relative;"
+                                    src="../../../../assets/img/mapa/route.png">
                             </button>
                         </div>
                         <div *ngIf="ativarBtnRota == false" class="bloco-rota">
-                            <input id="dateOfBirth" class="form-control" placeholder="Escolher destino..."
+                            <input id="dateOfBirth" class="form-control" title="Ex: 10, Rua xx" placeholder="Escolher destino..."
                                 style="width: 90%; float: left;" [(ngModel)]="enderecoDestino">
                             <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search"
                                     aria-hidden="true"></i></button>
@@ -23,8 +26,6 @@
                     </div>
                 </div>
             </div>
-
-            <app-toasts></app-toasts>
 
             <div class="card" *ngIf="ativarResumo">
                 <div class="card-body">
@@ -65,7 +66,7 @@
                         <div class="resumo">
                             <h6>Umidade do ar</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="primary" [value]="{{umidadeClima}}" height="10px"></ngb-progressbar>
+                                <ngb-progressbar type="primary" [value]="umidadeClima" height="10px"></ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Seco</p>
@@ -75,7 +76,8 @@
                         <div class="resumo">
                             <h6>Temperatura</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="success" [value]="{{tempClima}}" [max]='40' height="10px"></ngb-progressbar>
+                                <ngb-progressbar type="success" [value]="tempClima" [max]='40' height="10px">
+                                </ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Frioo</p>
@@ -97,8 +99,8 @@
     </div>
 
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-        <agm-marker  *ngIf="ativarBtnRota" [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-marker *ngIf="ativarBtnRota" [latitude]="lat" [longitude]="lng"></agm-marker>
         <agm-direction *ngIf="ativarBtnRota == false" [origin]="origin" [destination]="destination"></agm-direction>
-      </agm-map>
+    </agm-map>
 
 </div>

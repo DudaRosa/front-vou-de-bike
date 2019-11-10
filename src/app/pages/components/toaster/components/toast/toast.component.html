@@ -1,0 +1,26 @@
+<div
+  class="toast"
+  [ngClass]="[toast.theme]"
+  (click)="onClick()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  @slide
+  (@slide.done)="slideDone($event)"
+>
+  <div class="toast-content">
+    <header>
+      <div class="title">
+        <span>{{ toast.title }}</span>
+      </div>
+      <button class="btn-close"></button>
+    </header>
+    <div class="message">{{ toast.message }}</div>
+  </div>
+  <app-timer
+    *ngIf="toast.timer"
+    [duration]="toast.timer"
+    [run]="canRunTimer"
+    (timerEnd)="onTimerEnd($event)"
+    [toggleRunStateSubject]="toggleTimerRunStateSubject"
+  ></app-timer>
+</div>

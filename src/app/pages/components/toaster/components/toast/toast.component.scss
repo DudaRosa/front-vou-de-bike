@@ -1,0 +1,92 @@
+$default-text-color: #fff;
+$success-text-color: #fff;
+$warning-text-color: #fff;
+$error-text-color: #fff;
+
+$toast-default: #414141;
+$toast-success: #00b894;
+$toast-warning: #fdcb6e;
+$toast-error: #d63031;
+
+@mixin toastTheme($theme, $backColor, $textColor) {
+  &.#{$theme} {
+    background-color: $backColor;
+    color: $textColor;
+
+    .btn-close {
+      &::before,
+      &::after {
+        background-color: $textColor;
+      }
+    }
+  }
+}
+
+.toast {
+  z-index: 10000;
+  font-size: 14px;
+  min-width: 250px;
+  max-width: 350px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  overflow: hidden;
+  cursor: pointer;
+
+  @include toastTheme("default", $toast-default, $default-text-color);
+  @include toastTheme("success", $toast-success, $success-text-color);
+  @include toastTheme("warning", $toast-warning, $warning-text-color);
+  @include toastTheme("error", $toast-error, $error-text-color);
+
+  .toast-content {
+    padding: 10px 20px;
+    position: initial;
+  }
+
+  header {
+    margin-bottom: 4px;
+    align-items: center;
+    display: flex;
+
+    .title {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+  }
+
+  .btn-close {
+    background-color: transparent;
+    height: 16px;
+    width: 16px;
+    margin-left: auto;
+    border: none;
+    position: relative;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 16px;
+      width: 2px;
+      top: 50%;
+      left: 50%;
+      border-radius: 2px;
+      position: absolute;
+    }
+
+    &::before {
+      transform: translateX(-50%) translateY(-50%) rotateZ(45deg);
+    }
+
+    &::after {
+      transform: translateX(-50%) translateY(-50%) rotateZ(135deg);
+    }
+  }
+
+  .message {
+    max-height: 100px;
+    max-width: 100%;
+    overflow-y: auto;
+  }
+}

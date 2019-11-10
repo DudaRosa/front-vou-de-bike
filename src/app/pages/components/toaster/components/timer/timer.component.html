@@ -1,0 +1,5 @@
+<div class="timer" [ngClass]="{ running: start && isRunning }">
+  <div class="timer-bar">
+    <div class="timer-progress" [style.animation-duration.s]="duration" (animationend)="onAnimationEnd($event)"></div>
+  </div>
+</div>
