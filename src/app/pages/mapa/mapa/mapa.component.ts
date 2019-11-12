@@ -61,6 +61,8 @@ export class MapaComponent implements OnInit {
         .then((rota: Mapa) => {
           this.origin = { lat: rota[0].start_location.lat, lng: rota[0].start_location.lng };
           this.destination = { lat: rota[0].end_location.lat, lng: rota[0].end_location.lng };
+          this.getParceiros();
+          this.getResumoClimaProgressBar();
           this.ativarResumo = true;
         })
     } else {
@@ -84,7 +86,6 @@ export class MapaComponent implements OnInit {
           this.lng = local[0].geometry.location.lng;
           this.ativarResumo = false;
           this.ativarBtnRota = true;
-          this.getParceiros();
         })
     }
     else {
@@ -106,7 +107,7 @@ export class MapaComponent implements OnInit {
   }
 
   getParceiros() {
-    this.listParceiros.splice(0);
+    this.listParceiros = null;
     const i = Math.floor((Math.random() * 2) + 1);
 
     for (let index = 0; index < i; index++) {

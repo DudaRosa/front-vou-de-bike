@@ -9,6 +9,7 @@ import { SitesComponent } from './pages/parceiros/parceiros/sites.component';
 import { ParceiroResolver } from './pages/parceiros/resolvers/parceiro.resolver';
 import { NoticiaResolver } from './pages/noticia/resolvers/noticia.resolver';
 import { ClimaResolver } from './pages/clima/resolvers/clima.resolver';
+import { MapaResolver } from './pages/mapa/resolvers/mapa.resolver';
 
 
 const routes: Routes = [
@@ -29,7 +30,10 @@ const routes: Routes = [
     },
     {
         path: 'mapa',
-        component: MapaComponent
+        component: MapaComponent,
+        resolve: {
+            data: MapaResolver
+        }
     },
     {
         path: 'noticia',

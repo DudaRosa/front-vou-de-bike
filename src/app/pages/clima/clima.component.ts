@@ -8,7 +8,8 @@ import { Clima } from 'src/app/shared/models/clima';
   styleUrls: ['./clima.component.scss']
 })
 export class ClimaComponent implements OnInit {
-  listClima: Clima[];
+  listClima: Clima;
+  imgClima: string;
 
   temp: any = [
     { dia: "SEG", data: "19/09", maxima: 26, minima: 26 },
@@ -50,8 +51,15 @@ export class ClimaComponent implements OnInit {
 
     this.activatedRoute.data.subscribe(data => {
       this.listClima = data.data[0];
+      this.getImgClima();
     });
   }
 
+
+  getImgClima(){
+    if(this.listClima.description == 'Neblina'){
+      this.imgClima = this.iconsClima.cloud;
+    }
+  }
 
 }
