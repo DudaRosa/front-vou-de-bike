@@ -12,5 +12,6 @@ export class Clima {
     sunrise: string;
     sunset: string;
     city_name: string;
+    condition_slug: string
     forecast: Forecast[];
   }

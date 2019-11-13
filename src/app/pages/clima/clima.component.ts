@@ -24,7 +24,7 @@ export class ClimaComponent implements OnInit {
   iconsClima: any = {
     cloud: '../../../assets/img/clima/icon-cloud.png',
     cloudy: '../../../assets/img/clima/icon-cloudy.png',
-    cloudy1 :'../../../assets/img/clima/icon-cloudy-1.png',
+    cloudy1: '../../../assets/img/clima/icon-cloudy-1.png',
     night: '../../../assets/img/clima/icon-night.png',
     night1: '../../../assets/img/clima/icon-night-1.png',
     rain: '../../../assets/img/clima/icon-rain.png',
@@ -37,7 +37,9 @@ export class ClimaComponent implements OnInit {
     storm: '../../../assets/img/clima/icon-storm.png',
     summer: '../../../assets/img/clima/icon-summer.png',
     sun: '../../../assets/img/clima/icon-sun.png',
-    winter: '../../../assets/img/clima/icon-winter.png'
+    winter: '../../../assets/img/clima/icon-winter.png',
+    fog: '../../../assets/img/clima/icon-fog.png',
+    clear_night: '../../../assets/img/clima/icon-clear-night.png'
   };
 
   iconsClimaNoite: any = {
@@ -56,9 +58,33 @@ export class ClimaComponent implements OnInit {
   }
 
 
-  getImgClima(){
-    if(this.listClima.description == 'Neblina'){
+  getImgClima() {
+    if (this.listClima.description == 'Neblina') {
       this.imgClima = this.iconsClima.cloud;
+    }
+
+    switch (this.listClima.condition_slug) {
+
+      case 'storm':
+        return this.imgClima = this.iconsClima.storm;
+      case 'snow':
+        return this.imgClima = this.iconsClima.snowing1;
+      case 'hail':
+        return this.imgClima = this.iconsClima.snowing2;
+      case 'rain':
+        return this.imgClima = this.iconsClima.rain2;
+      case 'fog':
+        return this.imgClima = this.iconsClima.fog;
+      case 'clear_day' || 'none_day':
+        return this.imgClima = this.iconsClima.sun;
+      case 'clear_night' || 'none_night':
+        return this.imgClima = this.iconsClima.clear_night;
+      case 'cloud':
+        return this.imgClima = this.iconsClima.cloud;
+      case 'cloudly_day':
+        return this.imgClima = this.iconsClima.cloudy1;
+      case 'cloudly_night':
+        return this.imgClima = this.iconsClima.night1;
     }
   }
 
