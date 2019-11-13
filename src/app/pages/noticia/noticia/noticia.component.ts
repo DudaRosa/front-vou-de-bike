@@ -5,6 +5,7 @@ import { NoticiaService } from 'src/app/shared/services/noticia.service';
 import { ActivatedRoute } from '@angular/router';
 import { Noticia } from 'src/app/shared/models/noticia';
 import { Evento } from 'src/app/shared/models/evento';
+import { ToastService } from '../../components/toaster/toast.service';
 
 const WEEKDAYS_SHORT = ['Seg', 'Ter', 'Quar', 'Quin', 'Sex', 'Sab', 'Dom'];
 const MONTHS = ['Jan', 'Fev', 'Mar', 'Abri', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
@@ -71,7 +72,8 @@ export class NoticiaComponent implements OnInit {
 
   constructor(
     private noticiaService: NoticiaService,
-    private activatedRoute: ActivatedRoute, ) {
+    private activatedRoute: ActivatedRoute,
+    private toastService:   ToastService ) {
 
   }
 
@@ -86,7 +88,12 @@ export class NoticiaComponent implements OnInit {
     this.activatedRoute.data.subscribe(data => {
       this.listNoticias = data.data[0];
       this.listEvento = data.data[1];
-    this.novaListaEvento = this.converterDataEvento(this.listEvento);
+      if(this.listEvento != null){
+        this.novaListaEvento = this.converterDataEvento(this.listEvento);
+      }
+      else{
+        this.toastService.default("Não há eventos para exibir no momento");
+      }
     });
 
   }
