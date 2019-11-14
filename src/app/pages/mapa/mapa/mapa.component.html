@@ -32,26 +32,26 @@
                     <div class="input-group">
                         <h5>Resumo do local:</h5>
                         <div class="resumo">
-                            <h6>Dificuldade</h6>
+                            <h6>Distancia</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="danger" [value]="80" height="10px"></ngb-progressbar>
+                                <ngb-progressbar type="danger" [value]="distanciaRota" height="10px" [max]="6000">{{apiRotaGoogle.duration.text}}</ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
-                                <p class="item-texto-esquerda">Fácil de ir</p>
-                                <p class="item-texto-direita">Mais difícil</p>
+                                <p class="item-texto-esquerda">Perto</p>
+                                <p class="item-texto-direita">Longe..</p>
                             </div>
                         </div>
                         <div class="resumo">
                             <h6>Tempo</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="warning" [value]="70" height="10px"></ngb-progressbar>
+                                <ngb-progressbar type="warning" [value]="tempoRota" height="10px" [max]="5400">{{apiRotaGoogle.duration.text}}</ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Rapidinho</p>
                                 <p class="item-texto-direita">Mais lento</p>
                             </div>
                         </div>
-                        <div class="resumo">
+                        <!-- <div class="resumo">
                             <h6>Perigo</h6>
                             <p style="margin-bottom: 0%;">
                                 <ngb-progressbar type="secondary" [value]="10" height="10px"></ngb-progressbar>
@@ -60,17 +60,17 @@
                                 <p class="item-texto-esquerda">Tudo Seguro!</p>
                                 <p class="item-texto-direita">Tenha cuidado!</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="separador"></div>
                         <h5>Clima:</h5>
                         <div class="resumo">
-                            <h6>Umidade do ar</h6>
+                            <h6>Chuva</h6>
                             <p style="margin-bottom: 0%;">
                                 <ngb-progressbar type="primary" [value]="umidadeClima" height="10px"></ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
-                                <p class="item-texto-esquerda">Seco</p>
-                                <p class="item-texto-direita">Úmido</p>
+                                <p class="item-texto-esquerda">Não vai chover!</p>
+                                <p class="item-texto-direita">Cuidado, chuva.</p>
                             </div>
                         </div>
                         <div class="resumo">
@@ -86,10 +86,10 @@
                         </div>
                         <div class="separador"></div>
                         <h5 class="ask-like">Você irá de bicicleta hoje?</h5>
-                        <button class="like">
+                        <button class="like" (click)="openModalLike(true)">
                             <i class="fa fa-heart" aria-hidden="true" id="icon-yes"></i>
                         </button>
-                        <button class="like">
+                        <button class="like" (click)="openModalLike(false)">
                             <img id="icon-no" src="../../../../assets/img/mapa/icon-broken-heart.png">
                         </button>
                     </div>

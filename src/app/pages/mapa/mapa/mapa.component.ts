@@ -5,6 +5,8 @@ import { Mapa } from 'src/app/shared/models/mapa';
 import { Local } from 'src/app/shared/models/local';
 import { ActivatedRoute } from '@angular/router';
 import { Clima } from 'src/app/shared/models/clima';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LikeComponent } from '../component/like/like.component';
 
 
 @Component({
@@ -34,11 +36,15 @@ export class MapaComponent implements OnInit {
   resumoClima: Clima;
   tempClima: number;
   umidadeClima: number;
+  apiRotaGoogle: Mapa;
+  tempoRota: number;
+  distanciaRota: number;
 
   constructor(
     private toastService: ToastService,
     private mapaService: MapaService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private bsDialogService: NgbModal) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(data => {
@@ -59,6 +65,7 @@ export class MapaComponent implements OnInit {
         .mapaService
         .getRotaMapa(this.enderecoOrigem, this.enderecoDestino)
         .then((rota: Mapa) => {
+          this.apiRotaGoogle = rota;
           this.origin = { lat: rota[0].start_location.lat, lng: rota[0].start_location.lng };
           this.destination = { lat: rota[0].end_location.lat, lng: rota[0].end_location.lng };
           this.getParceiros();
@@ -104,6 +111,25 @@ export class MapaComponent implements OnInit {
   getResumoClimaProgressBar() {
     this.tempClima = this.resumoClima.temp;
     this.umidadeClima = this.resumoClima.humidity;
+
+    this.getTempoRota();
+    this.getDistanciaRota();
+  }
+
+  getTempoRota() {
+    if (this.apiRotaGoogle.duration.value <= 5400) {
+      this.tempoRota = this.apiRotaGoogle.duration.value;
+    } else {
+      this.tempoRota = 5400;
+    }
+  }
+
+  getDistanciaRota() {
+    if (this.apiRotaGoogle.distance.value <= 6000) {
+      this.distanciaRota = this.apiRotaGoogle.duration.value;
+    } else {
+      this.distanciaRota = 6000;
+    }
   }
 
   getParceiros() {
@@ -112,9 +138,6 @@ export class MapaComponent implements OnInit {
 
     for (let index = 0; index < i; index++) {
       const listIndexParceiros = Math.floor((Math.random() * 3) + 1);
-
-      // this.listParceiros.push(this.itemParceiros1[listIndexParceiros]);
-      // this.toastService.default( this.itemParceiros1[listIndexParceiros].titulo);
       this.toastService // message
         .showToast({
           title: 'Parceiros próximos:', // title
@@ -126,9 +149,16 @@ export class MapaComponent implements OnInit {
 
   }
 
-  btnVoltar(){
+  btnVoltar() {
     this.ativarResumo = false;
     this.ativarBtnRota = true;
   }
+
+  openModalLike(like: boolean) {
+    const modalRef = this.bsDialogService.open(LikeComponent, { size: "sm" });
+    if (like == true) {
+      modalRef.componentInstance.like = like;
+    }
+}
 
 }

@@ -7,7 +7,6 @@ import { NoticiaComponent } from "../noticia/noticia/noticia.component";
 import { SobreComponent } from "../sobre/sobre/sobre.component";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { MapaComponent } from "../mapa/mapa/mapa.component";
 import { HomeComponent } from "../home/home.component";
 import { MapaResolver } from "../mapa/resolvers/mapa.resolver";
 import { NoticiaResolver } from "../noticia/resolvers/noticia.resolver";
@@ -23,6 +22,7 @@ import { AgmDirectionModule } from 'agm-direction';
 import { ToasterModule } from './toaster/toaster.module';
 import { ToastService } from './toaster/toast.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MapaModule } from '../mapa/mapa.module';
 
 @NgModule({
   imports: [
@@ -37,12 +37,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     AgmDirectionModule,
     ToasterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MapaModule
   ],
   declarations: [
     HeaderComponent,
     ClimaComponent,
-    MapaComponent,
     NoticiaComponent,
     HomeComponent,
     SobreComponent,
@@ -50,7 +50,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   exports: [
     HeaderComponent,
     ClimaComponent,
-    MapaComponent,
     NoticiaComponent,
     SobreComponent,
     HomeComponent,
