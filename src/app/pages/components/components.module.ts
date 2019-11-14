@@ -32,10 +32,6 @@ import { MapaModule } from '../mapa/mapa.module';
     NgbModule,
     ParceirosModule,
     FormsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk'
-    }),
-    AgmDirectionModule,
     ToasterModule,
     BrowserAnimationsModule,
     MapaModule

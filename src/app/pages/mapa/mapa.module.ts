@@ -4,12 +4,22 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { LikeComponent } from './component/like/like.component';
 import { MapaComponent } from './mapa/mapa.component';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpj2qNzlBwvWbYFnUBHoxXg6sacPkgOWk'
+    }),
+    AgmDirectionModule,
   ],
   declarations: [
     MapaComponent,

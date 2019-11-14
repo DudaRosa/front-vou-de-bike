@@ -117,16 +117,16 @@ export class MapaComponent implements OnInit {
   }
 
   getTempoRota() {
-    if (this.apiRotaGoogle.duration.value <= 5400) {
-      this.tempoRota = this.apiRotaGoogle.duration.value;
+    if (this.apiRotaGoogle[0].duration.value <= 5400) {
+      this.tempoRota = this.apiRotaGoogle[0].duration.value;
     } else {
       this.tempoRota = 5400;
     }
   }
 
   getDistanciaRota() {
-    if (this.apiRotaGoogle.distance.value <= 6000) {
-      this.distanciaRota = this.apiRotaGoogle.duration.value;
+    if (this.apiRotaGoogle[0].distance.value <= 6000) {
+      this.distanciaRota = this.apiRotaGoogle[0].distance.value;
     } else {
       this.distanciaRota = 6000;
     }

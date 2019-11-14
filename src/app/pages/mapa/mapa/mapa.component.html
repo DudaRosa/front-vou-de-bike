@@ -34,7 +34,7 @@
                         <div class="resumo">
                             <h6>Distancia</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="danger" [value]="distanciaRota" height="10px" [max]="6000">{{apiRotaGoogle.duration.text}}</ngb-progressbar>
+                                <ngb-progressbar type="danger" [value]="distanciaRota" height="10px" [max]="6000">{{apiRotaGoogle[0].distance.text}}</ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Perto</p>
@@ -44,7 +44,7 @@
                         <div class="resumo">
                             <h6>Tempo</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="warning" [value]="tempoRota" height="10px" [max]="5400">{{apiRotaGoogle.duration.text}}</ngb-progressbar>
+                                <ngb-progressbar type="warning" [value]="tempoRota" height="10px" [max]="5400">{{apiRotaGoogle[0].duration.text}}</ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Rapidinho</p>
