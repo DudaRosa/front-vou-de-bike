@@ -24,6 +24,17 @@ agm-map {
   float: right;
   position: absolute;
 }
+.botao-esforco{
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  background-color: #16a086;
+  border-radius: 9px;
+  color: #ffff;
+  padding: 0px 38%;
+  margin: 0% 0% 1% 1%;
+  cursor: pointer;
+}
 
 .rota{
   background-color: transparent;

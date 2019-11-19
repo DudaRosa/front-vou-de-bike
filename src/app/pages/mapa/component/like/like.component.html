@@ -1,4 +1,7 @@
 <div class="like" *ngIf="like === true">
+    <button type="button" class="close pull-right text-black" (click)="fechar()">
+        <i class="fa fa-times"></i>
+    </button>
     <h4>Boa opção !!</h4>
     <h6>Valeu pelo Like !!</h6>
     <ng-template #t let-fill="fill">
@@ -10,6 +13,9 @@
 </div>
 
 <div class="like" *ngIf="like != true">
+    <button type="button" class="close pull-right text-black" (click)="fechar()">
+        <i class="fa fa-times"></i>
+    </button>
     <h4>Poxa que pena, por favor deixe a sua sugestão de como podemos melhorar o nosso serviço. No contato a baixo !</h4>
     <h6>voudebike@gmail.com</h6>
     <h6>Valeu pelo Like !! </h6>

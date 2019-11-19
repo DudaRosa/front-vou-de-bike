@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Clima } from 'src/app/shared/models/clima';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LikeComponent } from '../component/like/like.component';
+import { CaloriasComponent } from '../component/calorias/calorias.component';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class MapaComponent implements OnInit {
     { titulo: "Bike Sampa", categoria: "alugar", link: "https://bikeitau.com.br/bikesampa/" },
     { titulo: "Pedala SP", categoria: "alugar", link: "http://pedalaspapp.com.br/" }
   ];
+  
   listParceiros: any[];
   listLocal: any;
   ativarResumo: boolean = false;
@@ -70,7 +72,7 @@ export class MapaComponent implements OnInit {
           this.destination = { lat: rota[0].end_location.lat, lng: rota[0].end_location.lng };
           this.getParceiros();
           this.getResumoClimaProgressBar();
-          this.ativarResumo = true;
+    this.ativarResumo = true;
         })
     } else {
       this.toastService // message
@@ -96,7 +98,6 @@ export class MapaComponent implements OnInit {
         })
     }
     else {
-      // this.toastService.default('Insira o endereço !!');
       this.toastService // message
         .showToast({
           title: 'Endereço incorreto', // title
@@ -159,6 +160,11 @@ export class MapaComponent implements OnInit {
     if (like == true) {
       modalRef.componentInstance.like = like;
     }
-}
+  }
+
+  openModalCaloria(){
+    const modalRef = this.bsDialogService.open(CaloriasComponent, { size: "lg" });
+  
+  }
 
 }

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CaloriasComponent } from './component/calorias/calorias.component';
 
 @NgModule({
   imports: [
@@ -23,14 +24,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   declarations: [
     MapaComponent,
-    LikeComponent
+    LikeComponent,
+    CaloriasComponent
   ],
   exports: [
     MapaComponent,
     
   ],
   entryComponents:[
-    LikeComponent
+    LikeComponent,
+    CaloriasComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

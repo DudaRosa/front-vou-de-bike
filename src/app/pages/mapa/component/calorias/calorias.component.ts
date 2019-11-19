@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-like',
-  templateUrl: './like.component.html',
-  styleUrls: ['./like.component.scss']
+  selector: 'app-calorias',
+  templateUrl: './calorias.component.html',
+  styleUrls: ['./calorias.component.scss']
 })
-export class LikeComponent implements OnInit {
-  like: boolean;
-  currentRate = 4.14;
+export class CaloriasComponent implements OnInit {
 
   constructor(private ngbActiveModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
+
   fechar(wasUpdated?: boolean): void {
     this.ngbActiveModal.close(wasUpdated);
   }
