@@ -3,4 +3,6 @@ export class Evento {
     data: Date;
     descricao: string;
     nome: string;
+    ano: number;
+    mes: number;
 }

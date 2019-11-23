@@ -12,15 +12,18 @@
         <div class="bloco-eventos2">
             <h6 style="float: left; margin-left: 20px;">Eventos:</h6>
             <div class="scrollbar">
-                <div class="eventos" *ngFor="let evento of novaListaEvento">
-                    <div class="dia-evento">
-                        <p class="dia">{{ evento.data}}</p>
+                <div *ngFor="let evento of novaListaEvento; let i = index" [attr.data-index]="i">
+                    <div class="eventos" *ngIf="evento.ano == 2019">
+
+                        <div class="dia-evento">
+                            <p class="dia">{{ evento.data}}</p>
+                        </div>
+                        <h6 class="titulo">{{evento.titulo}}</h6>
+                        <p class="desc">{{evento.nome}}</p>
+                        <p class="desc">{{evento.data}}/{{evento.mes}}/{{evento.ano}}</p>
                     </div>
-                    <h6 class="titulo">{{evento.titulo}}</h6>
-                    <p class="desc">{{evento.descricao}}</p>
-                    <p class="desc">{{evento.horario}}</p>
                 </div>
-                <div *ngIf="listEvento.length == 0">
+                <div *ngIf="novaListaEvento.length == 0">
                     <h6 style="margin-top: 5%">Não tem evento nessa data.</h6>
                 </div>
             </div>

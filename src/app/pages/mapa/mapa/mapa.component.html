@@ -3,9 +3,9 @@
         <div class="y">
             <div class="card">
                 <div class="card-body">
-                    <div>Número do local, Endereço...</div>
+                    <div>Formato do campo: Endereço, Número do local...</div>
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" title="Ex: 10, Rua xx" placeholder="Pesquisar ou escolher o ponto de partida..."
+                        <input id="dateOfBirth" class="form-control" title="Ex: Rua xx, 10 " placeholder="Pesquisar ou escolher o ponto de partida..."
                             [(ngModel)]="enderecoOrigem">
                         <button *ngIf="ativarBtnRota == false" (click)="btnVoltar()" placement="right" ngbTooltip="Voltar." class="rota cancelar"><i class="fa fa-sign-out"
                                 aria-hidden="true"></i></button>
@@ -18,7 +18,7 @@
                             </button>
                         </div>
                         <div *ngIf="ativarBtnRota == false" class="bloco-rota">
-                            <input id="dateOfBirth" class="form-control" title="Ex: 10, Rua xx" placeholder="Escolher destino..."
+                            <input id="dateOfBirth" class="form-control" title="Ex: Rua xx, 10" placeholder="Escolher destino..."
                                 style="width: 90%; float: left;" [(ngModel)]="enderecoDestino">
                             <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search"
                                     aria-hidden="true"></i></button>
@@ -34,7 +34,7 @@
                         <div class="resumo">
                             <h6>Distancia</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="danger" [value]="distanciaRota" height="10px" [max]="6000">{{apiRotaGoogle[0].distance.text}}</ngb-progressbar>
+                                <ngb-progressbar type="danger" [value]="distanciaRota" height="20px" [max]="6000">{{apiRotaGoogle[0].distance.text}}</ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Perto</p>
@@ -44,7 +44,7 @@
                         <div class="resumo">
                             <h6>Tempo</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="warning" [value]="tempoRota" height="10px" [max]="5400">{{apiRotaGoogle[0].duration.text}}</ngb-progressbar>
+                                <ngb-progressbar type="warning" [value]="tempoRota" height="20px" [max]="5400">{{apiRotaGoogle[0].duration.text}}</ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
                                 <p class="item-texto-esquerda">Rapidinho</p>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="resumo">
-                            <h6>Esforço</h6>
+                            <h6>Calorias queimadas</h6>
                             <p style="margin-bottom: 0%;">
                                 <button class="botao-esforco" (click)="openModalCaloria()">Calcular</button>
                             </p>
@@ -60,19 +60,19 @@
                         <div class="separador"></div>
                         <h5>Clima:</h5>
                         <div class="resumo">
-                            <h6>Chuva</h6>
+                            <h6>Umidade do Ar</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="primary" [value]="umidadeClima" height="10px"></ngb-progressbar>
+                                <ngb-progressbar type="primary" [value]="umidadeClima" height="20px"></ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
-                                <p class="item-texto-esquerda">Não vai chover!</p>
-                                <p class="item-texto-direita">Cuidado, chuva.</p>
+                                <p class="item-texto-esquerda">Cuidado, tempo seco!</p>
+                                <p class="item-texto-direita">Tempo úmido.</p>
                             </div>
                         </div>
                         <div class="resumo">
                             <h6>Temperatura</h6>
                             <p style="margin-bottom: 0%;">
-                                <ngb-progressbar type="success" [value]="tempClima" [max]='40' height="10px">
+                                <ngb-progressbar type="success" [value]="tempClima" [max]='40' height="20px">
                                 </ngb-progressbar>
                             </p>
                             <div class="progressbar-texto">
