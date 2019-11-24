@@ -13,12 +13,10 @@ import { NoticiaResolver } from "../noticia/resolvers/noticia.resolver";
 import { ParceirosModule } from '../parceiros/parceiros.module';
 import { ParceiroResolver } from '../parceiros/resolvers/parceiro.resolver';
 import { NoticiaService } from 'src/app/shared/services/noticia.service';
-import { AgmCoreModule } from '@agm/core';
 import { ClimaResolver } from '../clima/resolvers/clima.resolver';
 import { ClimaService } from 'src/app/shared/services/clima.service';
 import { MapaService } from 'src/app/shared/services/mapa.service';
 import { FormsModule } from '@angular/forms';
-import { AgmDirectionModule } from 'agm-direction'; 
 import { ToasterModule } from './toaster/toaster.module';
 import { ToastService } from './toaster/toast.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,7 +47,7 @@ import { MapaModule } from '../mapa/mapa.module';
     NoticiaComponent,
     SobreComponent,
     HomeComponent,
-    ToasterModule
+    ToasterModule,
   ],
   providers:[
     MapaResolver,
