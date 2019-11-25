@@ -9,20 +9,20 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class CupomComponent implements OnInit {
  cupons: any;
  item: string;
-
+ parceiros: any;
   constructor(
     private bsDialogRef: NgbActiveModal
   ) { }
 
   ngOnInit() {
-    console.log("cupons",this.cupons);
+
   }
 
   close() {
     this.bsDialogRef.close();
   }
 
-  getCupons(link) {
-    window.open(link);
+  getCupons() {
+    window.open(this.parceiros.link);
   }
 }

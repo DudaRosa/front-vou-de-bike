@@ -3,9 +3,9 @@
         <div class="y">
             <div class="card">
                 <div class="card-body">
-                    <div>Formato do campo: Endereço, Número do local...</div>
+                    <div>Formato do campo: Endereço, Número do local, SP</div>
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" title="Ex: Rua xx, 10 " placeholder="Pesquisar ou escolher o ponto de partida..."
+                        <input id="dateOfBirth" class="form-control" title="Ex: Rua xx, 10, SP " placeholder="Pesquisar ou escolher o ponto de partida..."
                             [(ngModel)]="enderecoOrigem">
                         <button *ngIf="ativarBtnRota == false" (click)="btnVoltar()" placement="right" ngbTooltip="Voltar." class="rota cancelar"><i class="fa fa-sign-out"
                                 aria-hidden="true"></i></button>
@@ -18,7 +18,7 @@
                             </button>
                         </div>
                         <div *ngIf="ativarBtnRota == false" class="bloco-rota">
-                            <input id="dateOfBirth" class="form-control" title="Ex: Rua xx, 10" placeholder="Escolher destino..."
+                            <input id="dateOfBirth" class="form-control" title="Ex: Rua xx, 10, SP" placeholder="Escolher destino..."
                                 style="width: 90%; float: left;" [(ngModel)]="enderecoDestino">
                             <button class="pesquisaDestino" (click)="getAtivarResumo()"><i class="fa fa-search"
                                     aria-hidden="true"></i></button>

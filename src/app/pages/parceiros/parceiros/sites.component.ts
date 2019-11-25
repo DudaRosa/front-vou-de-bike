@@ -15,7 +15,7 @@ export class SitesComponent implements OnInit {
   cupom: Cupom[];
 
   itemParceiros1: any = [
-    { img: "../assets/img/sites/sites_yellow.png", borderColor: "#ffcb00", titulo: "Yellow", categoria: "alugar", link: "https://www.yellow.app/promocoes" },
+    { img: "../assets/img/sites/sites_yellow.png", borderColor: "#ffcb00", titulo: "Yellow", categoria: "alugar", link: "https://www.ongrin.com/" },
     { img: "../assets/img/sites/sites_grin.png", borderColor: "#0cd870", titulo: "Grin", categoria: "alugar", link: "https://ongrin.com/" },
     { img: "../assets/img/sites/sites_itau.png", borderColor: "#ee7202", titulo: "Bike Sampa", categoria: "alugar", link: "https://bikeitau.com.br/bikesampa/" },
     { img: "../assets/img/sites/sites_centauro.jpg", borderColor: "#c9244a", titulo: "Centauro", categoria: "comprar", link: "https://www.loucospordesconto.com.br/track/go/lpd/deal-852298?m%5Bgac%5D=1898392780.1569594481" },
@@ -33,7 +33,7 @@ export class SitesComponent implements OnInit {
   }
 
   openDialogCupom(item) {
-    const listCupom = this
+     this
       .parceirosService
       .getByParceiro(item.titulo)
       .then((cupom: Cupom[]) => {
@@ -42,6 +42,7 @@ export class SitesComponent implements OnInit {
         const modalRef = this.bsDialogService.open(CupomComponent, { size: "lg" });
         modalRef.componentInstance.cupons = this.cupom;
         modalRef.componentInstance.item = item.titulo;
+        modalRef.componentInstance.parceiros = item;
       });
   }
 }
