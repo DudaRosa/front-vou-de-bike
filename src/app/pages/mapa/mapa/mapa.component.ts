@@ -74,13 +74,17 @@ export class MapaComponent implements OnInit {
           this.getResumoClimaProgressBar();
     this.ativarResumo = true;
         })
+        .catch(erro =>{
+          this.toastService // message
+          .error('Endereço incorreto', {timer: 10});
+        })
     } else {
       this.toastService // message
         .showToast({
           title: 'Endereço incorreto', // title
           message: 'Insira o endereço !!',
           theme: 'default', // type
-          timer: 4 // timer
+          timer: 10 // timer
         });
     }
   }
@@ -96,6 +100,10 @@ export class MapaComponent implements OnInit {
           this.ativarResumo = false;
           this.ativarBtnRota = true;
         })
+        .catch(erro =>{
+          this.toastService // message
+          .error('Endereço incorreto', {timer: 10});
+        })
     }
     else {
       this.toastService // message
@@ -103,7 +111,7 @@ export class MapaComponent implements OnInit {
           title: 'Endereço incorreto', // title
           message: 'Insira o endereço !!',
           theme: 'default', // type
-          timer: 4 // timer
+          timer: 10 // timer
         });
     }
 
@@ -144,7 +152,7 @@ export class MapaComponent implements OnInit {
           title: 'Parceiros próximos:', // title
           message: this.itemParceiros1[listIndexParceiros].titulo,
           theme: 'default', // type
-          timer: 4 // timer
+          timer:  10// timer
         });
     }
 

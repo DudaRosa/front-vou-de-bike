@@ -119,3 +119,16 @@ h5{
   width: 100%;
   margin-top: 3%;
 }
+
+#cardResumo{
+  position: absolute;
+    left: 0px;
+    margin: 16px;
+    z-index: 15;
+    transition: left 0.5s;
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    transition-property: -webkit-transform,transform,visibility,opacity;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.0,0.0,0.2,1);
+}

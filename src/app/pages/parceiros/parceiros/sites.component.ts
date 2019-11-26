@@ -20,7 +20,7 @@ export class SitesComponent implements OnInit {
     { img: "../assets/img/sites/sites_itau.png", borderColor: "#ee7202", titulo: "Bike Sampa", categoria: "alugar", link: "https://bikeitau.com.br/bikesampa/" },
     { img: "../assets/img/sites/sites_centauro.jpg", borderColor: "#c9244a", titulo: "Centauro", categoria: "comprar", link: "https://www.loucospordesconto.com.br/track/go/lpd/deal-852298?m%5Bgac%5D=1898392780.1569594481" },
     { img: "../assets/img/sites/sites_centauro.jpg", borderColor: "#c9244a", titulo: "Centauro", categoria: "comprar", link: "https://www.loucospordesconto.com.br/track/go/lpd/deal-852298?m%5Bgac%5D=1898392780.1569594481" },
-    { img: "../assets/img/sites/sites_pedala.png", borderColor: "#001f4c", titulo: "Pedala SP", categoria: "alugar", link: "http://pedalaspapp.com.br/" }
+    { img: "../assets/img/sites/sites_pedala.png", borderColor: "#001f4c", titulo: "Pedala SP", categoria: "alugar", link: "https://www.pedala.eco.br/" }
   ];
 
   constructor(

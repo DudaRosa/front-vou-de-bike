@@ -39,7 +39,7 @@ export class ClimaComponent implements OnInit {
     sun: '../../../assets/img/clima/icon-sun.png',
     winter: '../../../assets/img/clima/icon-winter.png',
     fog: '../../../assets/img/clima/icon-fog.png',
-    clear_night: '../../../assets/img/clima/icon-clear-night.png'
+    clear_night: '../../../assets/img/clima/icon-clear-night.jpeg'
   };
 
   iconsClimaNoite: any = {
